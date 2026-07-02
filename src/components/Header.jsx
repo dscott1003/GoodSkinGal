@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getBookingLinkProps } from '../config';
 import './Header.css';
 
 const NAV_LINKS = [
@@ -41,7 +42,11 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="btn btn-primary header__cta" onClick={closeMenu}>
+          <a
+            {...getBookingLinkProps()}
+            className="btn btn-primary header__cta"
+            onClick={closeMenu}
+          >
             Book Now
           </a>
         </nav>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BOOKING_ENABLED, getBookingLinkProps } from '../config';
 import './Contact.css';
 
 const INITIAL = {
@@ -58,13 +59,23 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="contact__link">
-              <span className="contact__link-icon">◎</span>
-              <div>
-                <strong>Online Booking</strong>
-                <span>Coming soon — use the form for now</span>
+            {BOOKING_ENABLED ? (
+              <a {...getBookingLinkProps()} className="contact__link">
+                <span className="contact__link-icon">◎</span>
+                <div>
+                  <strong>Online Booking</strong>
+                  <span>Book an appointment instantly →</span>
+                </div>
+              </a>
+            ) : (
+              <div className="contact__link">
+                <span className="contact__link-icon">◎</span>
+                <div>
+                  <strong>Online Booking</strong>
+                  <span>Coming soon — use the form for now</span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="contact__book-banner">

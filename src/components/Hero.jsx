@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { getBookingLinkProps } from '../config';
 import './Hero.css';
 
 export default function Hero() {
@@ -39,7 +40,7 @@ export default function Hero() {
           Real results, gentle touch, and a little glow along the way.
         </p>
         <div className="hero__actions">
-          <a href="#contact" className="btn btn-primary">Book a Visit</a>
+          <a {...getBookingLinkProps()} className="btn btn-primary">Book a Visit</a>
           <a href="#about" className="btn btn-secondary">Meet Kristin</a>
         </div>
         <div className="hero__stats">
