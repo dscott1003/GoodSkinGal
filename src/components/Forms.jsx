@@ -1,4 +1,11 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATES,
+  isEmailConfigured,
+} from '../emailConfig';
 import './Forms.css';
 
 const INITIAL_INTAKE = {
@@ -25,6 +32,8 @@ export default function Forms() {
   const [intake, setIntake] = useState(INITIAL_INTAKE);
   const [waiver, setWaiver] = useState(INITIAL_WAIVER);
   const [submitted, setSubmitted] = useState(null);
+  const [sending, setSending] = useState(null); // 'intake' | 'waiver' | null
+  const [error, setError] = useState(null); // 'intake' | 'waiver' | null
 
   const handleIntakeChange = (e) => {
     const { name, value } = e.target;
@@ -39,17 +48,67 @@ export default function Forms() {
     }));
   };
 
-  const handleIntakeSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted('intake');
-    setTimeout(() => setSubmitted(null), 4000);
+  const sendForm = async (templateKey, payload) => {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATES[templateKey],
+      payload,
+      { publicKey: EMAILJS_PUBLIC_KEY },
+    );
   };
 
-  const handleWaiverSubmit = (e) => {
+  const handleIntakeSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    if (!isEmailConfigured('intake')) {
+      setSubmitted('intake');
+      setIntake(INITIAL_INTAKE);
+      setTimeout(() => setSubmitted(null), 5000);
+      return;
+    }
+
+    setSending('intake');
+    try {
+      await sendForm('intake', { ...intake });
+      setSubmitted('intake');
+      setIntake(INITIAL_INTAKE);
+      setTimeout(() => setSubmitted(null), 6000);
+    } catch (err) {
+      console.error('Intake form send failed:', err);
+      setError('intake');
+    } finally {
+      setSending(null);
+    }
+  };
+
+  const handleWaiverSubmit = async (e) => {
     e.preventDefault();
     if (!waiver.agreed) return;
-    setSubmitted('waiver');
-    setTimeout(() => setSubmitted(null), 4000);
+    setError(null);
+
+    if (!isEmailConfigured('waiver')) {
+      setSubmitted('waiver');
+      setWaiver(INITIAL_WAIVER);
+      setTimeout(() => setSubmitted(null), 5000);
+      return;
+    }
+
+    setSending('waiver');
+    try {
+      await sendForm('waiver', {
+        ...waiver,
+        agreed: waiver.agreed ? 'Yes' : 'No',
+      });
+      setSubmitted('waiver');
+      setWaiver(INITIAL_WAIVER);
+      setTimeout(() => setSubmitted(null), 6000);
+    } catch (err) {
+      console.error('Waiver form send failed:', err);
+      setError('waiver');
+    } finally {
+      setSending(null);
+    }
   };
 
   return (
@@ -180,13 +239,23 @@ export default function Forms() {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary forms__submit">
-                Submit Intake Form
+              <button
+                type="submit"
+                className="btn btn-primary forms__submit"
+                disabled={sending === 'intake'}
+              >
+                {sending === 'intake' ? 'Sending…' : 'Submit Intake Form'}
               </button>
 
               {submitted === 'intake' && (
                 <p className="forms__success" role="status">
                   Thank you! Your intake form has been received. Kristin will review it before your visit.
+                </p>
+              )}
+              {error === 'intake' && (
+                <p className="forms__error" role="alert">
+                  Something went wrong submitting your form. Please email
+                  yourgoodskingal@gmail.com or try again.
                 </p>
               )}
             </form>
@@ -266,13 +335,23 @@ export default function Forms() {
                 <span>I have read and agree to the terms above</span>
               </label>
 
-              <button type="submit" className="btn btn-primary forms__submit">
-                Sign &amp; Submit Waiver
+              <button
+                type="submit"
+                className="btn btn-primary forms__submit"
+                disabled={sending === 'waiver'}
+              >
+                {sending === 'waiver' ? 'Sending…' : 'Sign & Submit Waiver'}
               </button>
 
               {submitted === 'waiver' && (
                 <p className="forms__success" role="status">
                   Waiver signed successfully. You're all set for your appointment!
+                </p>
+              )}
+              {error === 'waiver' && (
+                <p className="forms__error" role="alert">
+                  Something went wrong submitting your waiver. Please email
+                  yourgoodskingal@gmail.com or try again.
                 </p>
               )}
             </form>

@@ -1,5 +1,12 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { BOOKING_ENABLED, getBookingLinkProps } from '../config';
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATES,
+  isEmailConfigured,
+} from '../emailConfig';
 import './Contact.css';
 
 const INITIAL = {
@@ -12,18 +19,39 @@ const INITIAL = {
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm(INITIAL);
-    setTimeout(() => setSubmitted(false), 4000);
+
+    if (!isEmailConfigured('contact')) {
+      // Demo mode: EmailJS keys not added yet.
+      setStatus('success');
+      setForm(INITIAL);
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATES.contact,
+        { ...form },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      setStatus('success');
+      setForm(INITIAL);
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch (err) {
+      console.error('Contact form send failed:', err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -148,13 +176,23 @@ export default function Contact() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary contact__submit">
-            Send Message
+          <button
+            type="submit"
+            className="btn btn-primary contact__submit"
+            disabled={status === 'sending'}
+          >
+            {status === 'sending' ? 'Sending…' : 'Send Message'}
           </button>
 
-          {submitted && (
+          {status === 'success' && (
             <p className="contact__success" role="status">
               Message sent! Kristin will get back to you soon.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="contact__error" role="alert">
+              Something went wrong sending your message. Please email
+              yourgoodskingal@gmail.com directly or try again.
             </p>
           )}
         </form>
