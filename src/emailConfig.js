@@ -63,7 +63,7 @@ export function isEmailConfigured(templateKey) {
 //  without a challenge (nothing breaks).
 // ============================================================
 
-export const RECAPTCHA_SITE_KEY = '';
+export const RECAPTCHA_SITE_KEY = '6LddF0ItAAAAADmm_aFB7YINq3gcftetpRC9oipz';
 
 export function isRecaptchaEnabled() {
   return Boolean(RECAPTCHA_SITE_KEY);
