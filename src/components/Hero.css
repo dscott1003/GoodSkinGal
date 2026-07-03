@@ -47,11 +47,46 @@
   opacity: 0.35;
 }
 
-.hero__content {
+.hero__inner {
   position: relative;
   z-index: 1;
+  width: 100%;
+}
+
+.hero__content {
   max-width: 720px;
-  padding: 4rem 1.5rem;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+/* Two-column layout when the reel is enabled */
+.hero--with-media .hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero--with-media .hero__content {
+  max-width: 620px;
+  margin: 0;
+  padding: 4rem 0;
+}
+
+.hero__media {
+  display: flex;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero__video {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  background: var(--warm-beige);
 }
 
 .hero__eyebrow {
@@ -152,6 +187,29 @@
 @keyframes bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@media (max-width: 900px) {
+  .hero--with-media .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero--with-media .hero__content {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 4rem 0 0;
+  }
+
+  .hero--with-media .hero__actions,
+  .hero--with-media .hero__stats {
+    justify-content: center;
+  }
+
+  .hero__video {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 768px) {

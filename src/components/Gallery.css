@@ -6,6 +6,38 @@
   margin-bottom: 3rem;
 }
 
+/* Crossfading photo slideshow */
+.slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--warm-beige);
+  box-shadow: var(--shadow-soft);
+}
+
+.slideshow__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  user-select: none;
+}
+
+.slideshow__photo.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .slideshow {
+    aspect-ratio: 4 / 5;
+  }
+}
+
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
