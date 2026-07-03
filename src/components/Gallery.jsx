@@ -29,25 +29,34 @@ export default function Gallery() {
 }
 
 function GallerySlideshow({ images }) {
+  // Shuffle once per page load so photos appear in a random order.
+  const [shuffled] = useState(() => {
+    const arr = [...images];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  });
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (images.length < 2) return undefined;
+    if (shuffled.length < 2) return undefined;
     const id = setTimeout(() => {
-      const next = (index + 1) % images.length;
+      const next = (index + 1) % shuffled.length;
       // Preload the next photo before crossfading to it.
       const preload = new Image();
       const advance = () => setIndex(next);
       preload.onload = advance;
       preload.onerror = advance;
-      preload.src = images[next];
+      preload.src = shuffled[next];
     }, SLIDESHOW_INTERVAL_MS);
     return () => clearTimeout(id);
-  }, [index, images]);
+  }, [index, shuffled]);
 
-  // Only keep the current photo and its neighbors loaded so all 80+
+  // Only keep the current photo and its neighbors loaded so all
   // images never download at once.
-  const n = images.length;
+  const n = shuffled.length;
   const active = new Set([index, (index + 1) % n, (index - 1 + n) % n]);
 
   return (
@@ -61,7 +70,7 @@ function GallerySlideshow({ images }) {
         </p>
 
         <div className="slideshow" role="img" aria-label="GoodSkinGal photo slideshow">
-          {images.map((src, i) => (
+          {shuffled.map((src, i) => (
             <img
               key={i}
               className={`slideshow__photo ${i === index ? 'is-active' : ''}`}

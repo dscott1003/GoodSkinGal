@@ -24,7 +24,7 @@
 //  Until photos are added, the Gallery shows its placeholder grid.
 // ============================================================
 
-export const REEL_ENABLED = false;
+export const REEL_ENABLED = true;
 export const REEL_SRC = '/reel.mp4';
 export const REEL_POSTER = '';
 
