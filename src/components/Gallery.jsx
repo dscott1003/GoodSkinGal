@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import { SLIDESHOW_INTERVAL_MS } from '../mediaConfig';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Gallery.css';
 
 // Auto-import every photo dropped into src/assets/gallery/.
-// Files are sorted by name so you can control order with prefixes.
 const galleryModules = import.meta.glob(
   '../assets/gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
   { eager: true, query: '?url', import: 'default' },
@@ -11,6 +9,8 @@ const galleryModules = import.meta.glob(
 const GALLERY_IMAGES = Object.keys(galleryModules)
   .sort()
   .map((key) => galleryModules[key]);
+
+const TILE_COUNT = 8;
 
 const PLACEHOLDER_ITEMS = [
   { id: 1, label: 'Treatment room', gradient: 'linear-gradient(135deg, #C9DCE6, #E7DCCF)' },
@@ -23,41 +23,37 @@ const PLACEHOLDER_ITEMS = [
 
 export default function Gallery() {
   if (GALLERY_IMAGES.length > 0) {
-    return <GallerySlideshow images={GALLERY_IMAGES} />;
+    return <GalleryMosaic images={GALLERY_IMAGES} />;
   }
   return <GalleryPlaceholder />;
 }
 
-function GallerySlideshow({ images }) {
-  // Shuffle once per page load so photos appear in a random order.
-  const [shuffled] = useState(() => {
-    const arr = [...images];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  });
-  const [index, setIndex] = useState(0);
+function GalleryMosaic({ images }) {
+  // Track which images are currently on screen so no two tiles show the
+  // same photo at the same moment.
+  const inUse = useRef(new Set());
 
-  useEffect(() => {
-    if (shuffled.length < 2) return undefined;
-    const id = setTimeout(() => {
-      const next = (index + 1) % shuffled.length;
-      // Preload the next photo before crossfading to it.
-      const preload = new Image();
-      const advance = () => setIndex(next);
-      preload.onload = advance;
-      preload.onerror = advance;
-      preload.src = shuffled[next];
-    }, SLIDESHOW_INTERVAL_MS);
-    return () => clearTimeout(id);
-  }, [index, shuffled]);
+  const pickImage = useCallback(
+    (exclude) => {
+      let pool = images.filter(
+        (img) => img !== exclude && !inUse.current.has(img),
+      );
+      if (pool.length === 0) {
+        pool = images.filter((img) => img !== exclude);
+      }
+      if (pool.length === 0) pool = images;
+      const chosen = pool[Math.floor(Math.random() * pool.length)];
+      inUse.current.add(chosen);
+      return chosen;
+    },
+    [images],
+  );
 
-  // Only keep the current photo and its neighbors loaded so all
-  // images never download at once.
-  const n = shuffled.length;
-  const active = new Set([index, (index + 1) % n, (index - 1 + n) % n]);
+  const releaseImage = useCallback((img) => {
+    if (img) inUse.current.delete(img);
+  }, []);
+
+  const tileCount = Math.min(TILE_COUNT, images.length);
 
   return (
     <section id="gallery" className="gallery section">
@@ -65,19 +61,17 @@ function GallerySlideshow({ images }) {
         <span className="section-label">Gallery</span>
         <h2 className="section-title">A peek inside the experience</h2>
         <p className="section-subtitle">
-          Real moments from the studio — a glimpse of the space, the care, and
-          the glow.
+          Real skin, real results — a living look at the faces, treatments, and
+          glow that come through the studio.
         </p>
 
-        <div className="slideshow" role="img" aria-label="GoodSkinGal photo slideshow">
-          {shuffled.map((src, i) => (
-            <img
+        <div className="gallery__grid gallery__grid--live">
+          {Array.from({ length: tileCount }).map((_, i) => (
+            <GalleryTile
               key={i}
-              className={`slideshow__photo ${i === index ? 'is-active' : ''}`}
-              src={active.has(i) ? src : undefined}
-              alt=""
-              aria-hidden="true"
-              draggable="false"
+              className={`gallery__tile--${i + 1}`}
+              pick={pickImage}
+              release={releaseImage}
             />
           ))}
         </div>
@@ -94,6 +88,80 @@ function GallerySlideshow({ images }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function GalleryTile({ className, pick, release }) {
+  const [layers, setLayers] = useState(() => ({
+    a: pick(null),
+    b: null,
+    showA: true,
+  }));
+  const layersRef = useRef(layers);
+  layersRef.current = layers;
+
+  useEffect(() => {
+    let alive = true;
+    let timer;
+
+    const tick = () => {
+      // Each tile fades on its own random rhythm so they never move together.
+      const wait = 2600 + Math.random() * 4600;
+      timer = setTimeout(() => {
+        if (!alive) return;
+        const { a, b, showA } = layersRef.current;
+        const visible = showA ? a : b;
+        const incoming = pick(visible);
+
+        const swap = () => {
+          if (!alive) {
+            release(incoming);
+            return;
+          }
+          setLayers((prev) => {
+            const replaced = prev.showA ? prev.b : prev.a;
+            release(replaced);
+            return prev.showA
+              ? { a: prev.a, b: incoming, showA: false }
+              : { a: incoming, b: prev.b, showA: true };
+          });
+          tick();
+        };
+
+        // Preload so the crossfade is smooth.
+        const img = new Image();
+        img.onload = swap;
+        img.onerror = swap;
+        img.src = incoming;
+      }, wait);
+    };
+
+    tick();
+    return () => {
+      alive = false;
+      clearTimeout(timer);
+    };
+  }, [pick, release]);
+
+  return (
+    <div className={`gallery__tile ${className}`}>
+      <img
+        className="gallery__tile-img"
+        src={layers.a || undefined}
+        style={{ opacity: layers.showA ? 1 : 0 }}
+        alt=""
+        aria-hidden="true"
+        draggable="false"
+      />
+      <img
+        className="gallery__tile-img"
+        src={layers.b || undefined}
+        style={{ opacity: layers.showA ? 0 : 1 }}
+        alt=""
+        aria-hidden="true"
+        draggable="false"
+      />
+    </div>
   );
 }
 
