@@ -49,9 +49,8 @@ export function isEmailConfigured(templateKey) {
 //    1. Go to https://www.google.com/recaptcha/admin/create
 //    2. Label:  GoodSkinGal
 //    3. Type:   reCAPTCHA v2  ->  "I'm not a robot" Checkbox
-//    4. Domains: add  goodskingal.vercel.app
-//                (and localhost for testing, plus your custom
-//                 domain later)
+//    4. Domains: add  goodskingal.com, www.goodskingal.com,
+//                goodskingal.vercel.app, and localhost (testing)
 //    5. Submit -> you'll get a SITE KEY and a SECRET KEY.
 //
 //    6. Paste the SITE KEY below (safe to be public).
