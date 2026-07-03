@@ -79,13 +79,21 @@
   animation: fadeUp 0.8s 0.3s ease both;
 }
 
-.hero__video {
+.hero__frame {
   width: 100%;
-  max-width: 360px;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
+  max-width: 372px;
+  padding: 10px;
+  background: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
+}
+
+.hero__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 6px;
   background: var(--warm-beige);
 }
 
@@ -207,8 +215,8 @@
     justify-content: center;
   }
 
-  .hero__video {
-    max-width: 300px;
+  .hero__frame {
+    max-width: 312px;
   }
 }
 
