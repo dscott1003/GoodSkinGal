@@ -9,15 +9,11 @@
 //  exactly two: intake + waiver.
 //
 //  ---------------------------------------------------------
-//  WHAT'S LEFT TO DO:
+//  STATUS: LIVE
 //  ---------------------------------------------------------
-//  The Service ID and both Template IDs are already filled in.
-//  You still need to paste your PUBLIC KEY below:
-//    EmailJS Dashboard -> Account -> General -> Public Key
-//    (looks like "AbCdEfG123456")
-//
-//  Until the Public Key is added, the forms stay in "demo" mode:
-//  they show a friendly confirmation but don't send email yet.
+//  Service ID, both Template IDs, and the Public Key are all set,
+//  so the Intake and Waiver forms send real email to your Gmail.
+//  (If you ever rotate these values, update them here.)
 //
 //  Template variables in use (match the form fields):
 //    INTAKE (template_a5diov7):
@@ -27,7 +23,7 @@
 //      {{fullName}} {{email}} {{date}} {{signature}} {{agreed}}
 // ============================================================
 
-export const EMAILJS_PUBLIC_KEY = '';
+export const EMAILJS_PUBLIC_KEY = 'gUX-SPGB3Rd-A6FIR';
 export const EMAILJS_SERVICE_ID = 'service_s0x2krn';
 
 export const EMAILJS_TEMPLATES = {
