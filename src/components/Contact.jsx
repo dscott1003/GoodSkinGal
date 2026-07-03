@@ -51,13 +51,13 @@ export default function Contact() {
               </div>
             </a>
 
-            <div className="contact__link">
+            <a href="mailto:yourgoodskingal@gmail.com" className="contact__link">
               <span className="contact__link-icon">✉</span>
               <div>
                 <strong>Email</strong>
-                <span>hello@goodskingal.com</span>
+                <span>yourgoodskingal@gmail.com</span>
               </div>
-            </div>
+            </a>
 
             {BOOKING_ENABLED ? (
               <a {...getBookingLinkProps()} className="contact__link">

@@ -22,7 +22,7 @@ export default function About() {
           <h2 className="section-title">Your esthetician,<br />your glow partner</h2>
           <p className="about__text">
             Hi there — I'm <strong>Kristin Scott</strong>, the heart behind
-            GoodSkinGal. I've spent <em>over 19 years</em> in the skincare world,
+            GoodSkinGal. I've spent <em>over 23 years</em> in the skincare world,
             a path that began with my own struggle with acne. I enrolled in
             esthetics school simply to understand my skin, and somewhere along the
             way that curiosity blossomed into a lifelong passion.
@@ -44,12 +44,12 @@ export default function About() {
             renovation projects that are gloriously above my skill level — then
             recruiting my husband, <em>Dan</em>, to bring them to life. We call
             Nolensville home, along with our three amazing kiddos: Eliza (15),
-            Louisa (12), and Hunter (almost 4).
+            Louisa (12), and Hunter (3).
           </p>
           <div className="about__highlights">
             <div className="about__highlight">
               <strong>Experienced</strong>
-              <span>19+ years caring for skin</span>
+              <span>23+ years caring for skin</span>
             </div>
             <div className="about__highlight">
               <strong>Educational</strong>
