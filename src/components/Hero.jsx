@@ -67,18 +67,16 @@ export default function Hero() {
 
         {REEL_ENABLED && (
           <div className="hero__media">
-            <div className="hero__frame">
-              <video
-                className="hero__video"
-                src={REEL_SRC}
-                poster={REEL_POSTER || undefined}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            </div>
+            <video
+              className="hero__video"
+              src={REEL_SRC}
+              poster={REEL_POSTER || undefined}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
           </div>
         )}
       </div>
