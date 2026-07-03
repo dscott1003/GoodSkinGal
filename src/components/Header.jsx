@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Forms', href: '#forms' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {

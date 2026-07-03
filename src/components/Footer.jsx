@@ -1,3 +1,4 @@
+import { getBookingLinkProps } from '../config';
 import './Footer.css';
 
 export default function Footer() {
@@ -23,7 +24,6 @@ export default function Footer() {
               <li><a href="#about">About</a></li>
               <li><a href="#gallery">Gallery</a></li>
               <li><a href="#forms">Forms</a></li>
-              <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <div className="footer__col">
@@ -38,7 +38,10 @@ export default function Footer() {
                   Instagram
                 </a>
               </li>
-              <li><a href="#contact">Book a Visit</a></li>
+              <li>
+                <a href="mailto:yourgoodskingal@gmail.com">Email Kristin</a>
+              </li>
+              <li><a {...getBookingLinkProps()}>Book a Visit</a></li>
               <li><a href="#forms">Client Forms</a></li>
             </ul>
           </div>

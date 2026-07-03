@@ -11,14 +11,14 @@
 //       https://www.vagaro.com/goodskingal )
 //
 //  Until you add a link, all "Book Now" buttons safely fall back
-//  to the contact form (#contact) so nothing is broken.
+//  to the Forms section (#forms) so nothing is broken.
 // ============================================================
 
 export const BOOKING_URL = 'https://www.vagaro.com/goodskingal';
 
 // Returns the props a link should use for booking.
 // - With a Vagaro URL: opens the booking page in a new tab.
-// - Without one: scrolls to the contact form instead.
+// - Without one: scrolls to the Forms section instead.
 export function getBookingLinkProps() {
   if (BOOKING_URL) {
     return {
@@ -27,7 +27,7 @@ export function getBookingLinkProps() {
       rel: 'noopener noreferrer',
     };
   }
-  return { href: '#contact' };
+  return { href: '#forms' };
 }
 
 export const BOOKING_ENABLED = Boolean(BOOKING_URL);
