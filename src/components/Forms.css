@@ -133,6 +133,12 @@
   animation: fadeIn 0.3s ease;
 }
 
+.forms__captcha {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
 .forms__error {
   margin-top: 1rem;
   padding: 1rem;

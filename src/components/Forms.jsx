@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import {
   EMAILJS_PUBLIC_KEY,
   EMAILJS_SERVICE_ID,
   EMAILJS_TEMPLATES,
   isEmailConfigured,
+  RECAPTCHA_SITE_KEY,
+  isRecaptchaEnabled,
 } from '../emailConfig';
 import './Forms.css';
 
@@ -35,6 +38,9 @@ export default function Forms() {
   const [sending, setSending] = useState(null); // 'intake' | 'waiver' | null
   const [error, setError] = useState(null); // 'intake' | 'waiver' | null
 
+  const intakeCaptcha = useRef(null);
+  const waiverCaptcha = useRef(null);
+
   const handleIntakeChange = (e) => {
     const { name, value } = e.target;
     setIntake((prev) => ({ ...prev, [name]: value }));
@@ -48,11 +54,14 @@ export default function Forms() {
     }));
   };
 
-  const sendForm = async (templateKey, payload) => {
+  const sendForm = async (templateKey, payload, token) => {
+    const params = token
+      ? { ...payload, 'g-recaptcha-response': token }
+      : payload;
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATES[templateKey],
-      payload,
+      params,
       { publicKey: EMAILJS_PUBLIC_KEY },
     );
   };
@@ -68,15 +77,26 @@ export default function Forms() {
       return;
     }
 
+    let token;
+    if (isRecaptchaEnabled()) {
+      token = intakeCaptcha.current?.getValue();
+      if (!token) {
+        setError('intake');
+        return;
+      }
+    }
+
     setSending('intake');
     try {
-      await sendForm('intake', { ...intake });
+      await sendForm('intake', { ...intake }, token);
       setSubmitted('intake');
       setIntake(INITIAL_INTAKE);
+      intakeCaptcha.current?.reset();
       setTimeout(() => setSubmitted(null), 6000);
     } catch (err) {
       console.error('Intake form send failed:', err);
       setError('intake');
+      intakeCaptcha.current?.reset();
     } finally {
       setSending(null);
     }
@@ -94,18 +114,30 @@ export default function Forms() {
       return;
     }
 
+    let token;
+    if (isRecaptchaEnabled()) {
+      token = waiverCaptcha.current?.getValue();
+      if (!token) {
+        setError('waiver');
+        return;
+      }
+    }
+
     setSending('waiver');
     try {
-      await sendForm('waiver', {
-        ...waiver,
-        agreed: waiver.agreed ? 'Yes' : 'No',
-      });
+      await sendForm(
+        'waiver',
+        { ...waiver, agreed: waiver.agreed ? 'Yes' : 'No' },
+        token,
+      );
       setSubmitted('waiver');
       setWaiver(INITIAL_WAIVER);
+      waiverCaptcha.current?.reset();
       setTimeout(() => setSubmitted(null), 6000);
     } catch (err) {
       console.error('Waiver form send failed:', err);
       setError('waiver');
+      waiverCaptcha.current?.reset();
     } finally {
       setSending(null);
     }
@@ -239,6 +271,12 @@ export default function Forms() {
                 />
               </div>
 
+              {isRecaptchaEnabled() && (
+                <div className="forms__captcha">
+                  <ReCAPTCHA ref={intakeCaptcha} sitekey={RECAPTCHA_SITE_KEY} />
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="btn btn-primary forms__submit"
@@ -334,6 +372,12 @@ export default function Forms() {
                 />
                 <span>I have read and agree to the terms above</span>
               </label>
+
+              {isRecaptchaEnabled() && (
+                <div className="forms__captcha">
+                  <ReCAPTCHA ref={waiverCaptcha} sitekey={RECAPTCHA_SITE_KEY} />
+                </div>
+              )}
 
               <button
                 type="submit"

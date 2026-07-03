@@ -39,3 +39,32 @@ export function isEmailConfigured(templateKey) {
       EMAILJS_TEMPLATES[templateKey],
   );
 }
+
+// ============================================================
+//  SPAM PROTECTION  (Google reCAPTCHA v2 "I'm not a robot")
+// ============================================================
+//  Adds a checkbox challenge to the forms so bots can't spam
+//  your inbox. Setup (free):
+//
+//    1. Go to https://www.google.com/recaptcha/admin/create
+//    2. Label:  GoodSkinGal
+//    3. Type:   reCAPTCHA v2  ->  "I'm not a robot" Checkbox
+//    4. Domains: add  goodskingal.vercel.app
+//                (and localhost for testing, plus your custom
+//                 domain later)
+//    5. Submit -> you'll get a SITE KEY and a SECRET KEY.
+//
+//    6. Paste the SITE KEY below (safe to be public).
+//    7. Paste the SECRET KEY into EmailJS: open EACH template
+//       (intake + waiver) -> Security / reCAPTCHA field ->
+//       paste the secret. This is what actually verifies it.
+//
+//  Until a SITE KEY is added here, the forms work normally
+//  without a challenge (nothing breaks).
+// ============================================================
+
+export const RECAPTCHA_SITE_KEY = '';
+
+export function isRecaptchaEnabled() {
+  return Boolean(RECAPTCHA_SITE_KEY);
+}
