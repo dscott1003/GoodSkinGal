@@ -17,10 +17,11 @@ const SERVICES = [
     icon: '❋',
   },
   {
-    title: 'Coming Soon: Shop',
-    description: 'Curated skincare products hand-picked by Kristin — your favorites, delivered to your door.',
+    title: 'Shop Skin Script',
+    description: 'Professional, fruit-based skincare hand-picked by Kristin — pick up in-house favorites or have them shipped to your door.',
     icon: '◇',
-    comingSoon: true,
+    href: '#shop',
+    cta: 'Browse the shop',
   },
 ];
 
@@ -37,15 +38,14 @@ export default function Services() {
 
         <div className="services__grid">
           {SERVICES.map((service) => (
-            <article
-              key={service.title}
-              className={`services__card ${service.comingSoon ? 'services__card--soon' : ''}`}
-            >
+            <article key={service.title} className="services__card">
               <span className="services__icon">{service.icon}</span>
               <h3 className="services__title">{service.title}</h3>
               <p className="services__desc">{service.description}</p>
-              {service.comingSoon && (
-                <span className="services__badge">Coming Soon</span>
+              {service.href && (
+                <a href={service.href} className="services__cta">
+                  {service.cta} →
+                </a>
               )}
             </article>
           ))}

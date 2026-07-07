@@ -79,6 +79,39 @@
   font-size: 0.8125rem;
 }
 
+.header__cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slate-dark);
+  padding: 0.4rem;
+  margin-left: 1.25rem;
+  transition: color var(--transition);
+  z-index: 110;
+}
+
+.header__cart:hover {
+  color: var(--slate);
+}
+
+.header__cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  background: var(--slate);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .header__toggle {
   display: none;
   flex-direction: column;
