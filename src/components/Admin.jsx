@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useCatalog, updateProduct, resetOverrides, exportConfig } from '../shop/catalogStore';
+import { useShowPrices, setShowPrices } from '../shop/settingsStore';
 import { ADMIN_PASSCODE, ADMIN_SESSION_KEY } from '../shop/adminConfig';
 import { CATEGORIES } from '../data/skinScriptProducts';
 import './Admin.css';
@@ -41,6 +42,7 @@ function Login({ onSuccess }) {
 
 function Dashboard() {
   const catalog = useCatalog();
+  const showPrices = useShowPrices();
   const [savedFlash, setSavedFlash] = useState('');
 
   const stats = useMemo(() => {
@@ -115,9 +117,28 @@ function Dashboard() {
           &nbsp;<b>Ships in 24 hrs</b> — Skin Script drop-ships it to the client
           ("Ships in 24 hrs, delivery times may vary based off location"). Off = you
           keep it in stock for pickup.
-          &nbsp;Prices currently display publicly as <b>$xx.xx</b> until final pricing
-          is set — you can still enter the real numbers here now.
+          &nbsp;Prices are loaded and ready — use the switch below to reveal them
+          publicly when you're ready.
         </p>
+      </div>
+
+      <div className="admin__setting">
+        <div className="admin__setting-text">
+          <h3>Show prices on the public site</h3>
+          <p>
+            {showPrices
+              ? 'Live prices are visible to visitors.'
+              : 'Prices are hidden — the shop shows $xx.xx to visitors.'}
+          </p>
+        </div>
+        <label className="admin__toggle admin__toggle--lg">
+          <input
+            type="checkbox"
+            checked={showPrices}
+            onChange={(e) => { setShowPrices(e.target.checked); flash(e.target.checked ? 'Prices are now public' : 'Prices hidden'); }}
+          />
+          <span />
+        </label>
       </div>
 
       {Object.entries(byCategory).map(([cat, rows]) => (

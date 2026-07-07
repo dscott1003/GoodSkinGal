@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { useCart } from '../shop/CartContext';
 import { useCatalog } from '../shop/catalogStore';
+import { useShowPrices } from '../shop/settingsStore';
 import {
   DROPSHIP_LABEL,
-  SHOW_PRICES,
   formatPrice,
   productInitials,
   CATEGORY_COLORS,
@@ -12,9 +12,9 @@ import './CartDrawer.css';
 
 const ORDER_EMAIL = 'yourgoodskingal@gmail.com';
 
-function buildOrderMailto(lines, subtotal) {
+function buildOrderMailto(lines, subtotal, showPrices) {
   const pricePart = (l) =>
-    SHOW_PRICES
+    showPrices
       ? ` ($${l.price.toFixed(2)} each = $${(l.qty * l.price).toFixed(2)})`
       : ' (price TBD)';
 
@@ -27,7 +27,7 @@ function buildOrderMailto(lines, subtotal) {
         (l.dropship ? '  [ship to me]' : '  [pick up]')
     ),
     '',
-    SHOW_PRICES ? `Estimated subtotal: $${subtotal.toFixed(2)}` : 'Estimated subtotal: TBD',
+    showPrices ? `Estimated subtotal: $${subtotal.toFixed(2)}` : 'Estimated subtotal: TBD',
     '',
     'My name: ',
     'Best phone: ',
@@ -43,6 +43,7 @@ function buildOrderMailto(lines, subtotal) {
 export default function CartDrawer() {
   const { items, open, setOpen, setQty, removeItem, clear, count } = useCart();
   const catalog = useCatalog();
+  const showPrices = useShowPrices();
 
   const byId = useMemo(() => {
     const map = {};
@@ -120,7 +121,7 @@ export default function CartDrawer() {
                         </button>
                       </div>
                     </div>
-                    <span className="cart__item-price">{formatPrice(l.qty * l.price)}</span>
+                    <span className="cart__item-price">{formatPrice(l.qty * l.price, showPrices)}</span>
                   </div>
                 );
               })}
@@ -129,7 +130,7 @@ export default function CartDrawer() {
             <div className="cart__foot">
               <div className="cart__subtotal">
                 <span>Subtotal</span>
-                <span>{formatPrice(subtotal)}</span>
+                <span>{formatPrice(subtotal, showPrices)}</span>
               </div>
               {hasShipped && (
                 <p className="cart__ship-note">
@@ -138,7 +139,7 @@ export default function CartDrawer() {
               )}
               <a
                 className="btn btn-primary cart__checkout"
-                href={buildOrderMailto(lines, subtotal)}
+                href={buildOrderMailto(lines, subtotal, showPrices)}
               >
                 Send Order Request
               </a>

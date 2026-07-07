@@ -1,19 +1,19 @@
 import { useMemo, useState } from 'react';
 import { getBookingLinkProps } from '../config';
 import { useCatalog } from '../shop/catalogStore';
+import { useShowPrices } from '../shop/settingsStore';
 import { useCart } from '../shop/CartContext';
 import {
   CATEGORIES,
   CATEGORY_COLORS,
   DROPSHIP_LABEL,
   INSTOCK_LABEL,
-  SHOW_PRICES,
   formatPrice,
   productInitials,
 } from '../data/skinScriptProducts';
 import './Shop.css';
 
-function ProductCard({ product }) {
+function ProductCard({ product, showPrices }) {
   const { addItem } = useCart();
   const [g1, g2] = CATEGORY_COLORS[product.category] || ['#e7dccf', '#cbb6a2'];
 
@@ -50,7 +50,7 @@ function ProductCard({ product }) {
         </div>
 
         <div className="shop__footer">
-          <span className="shop__price">{formatPrice(product.price)}</span>
+          <span className="shop__price">{formatPrice(product.price, showPrices)}</span>
           <button
             className="btn btn-primary shop__add"
             onClick={() => addItem(product.id)}
@@ -65,6 +65,7 @@ function ProductCard({ product }) {
 
 export default function Shop() {
   const catalog = useCatalog();
+  const showPrices = useShowPrices();
   const [activeCat, setActiveCat] = useState('All');
 
   const listed = useMemo(
@@ -116,12 +117,12 @@ export default function Shop() {
 
             <div className="shop__grid">
               {visible.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} showPrices={showPrices} />
               ))}
             </div>
 
             <p className="shop__note">
-              {SHOW_PRICES
+              {showPrices
                 ? 'Prices are suggested retail. '
                 : 'Pricing coming soon. '}
               Have a question about what's right for your skin?{' '}
