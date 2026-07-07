@@ -14,6 +14,15 @@
 export const DROPSHIP_LABEL = 'Ships in 24 hrs, delivery times may vary based off location';
 export const INSTOCK_LABEL = 'In stock — ready at your next visit';
 
+// Pricing is hidden site-wide until final retail prices are set. While false,
+// every public price shows as "$xx.xx". Flip to true to reveal real prices.
+// (Admin can still edit the underlying numbers in the meantime.)
+export const SHOW_PRICES = false;
+
+export function formatPrice(price) {
+  return SHOW_PRICES ? `$${Number(price).toFixed(2)}` : '$xx.xx';
+}
+
 export const CATEGORIES = [
   'All',
   'Cleansers',
@@ -310,30 +319,6 @@ export const PRODUCTS = [
   },
 
   // ---------------- Masks & Enzymes ----------------
-  {
-    id: 'pumpkin-enzyme',
-    name: 'Pumpkin Enzyme',
-    category: 'Masks & Enzymes',
-    price: 32,
-    size: '4 oz',
-    skinTypes: ['All', 'Dull'],
-    blurb: 'An at-home enzyme treatment that gently digests dead skin for instant radiance.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'passion-fruit-enzyme',
-    name: 'Passion Fruit Enzyme',
-    category: 'Masks & Enzymes',
-    price: 32,
-    size: '4 oz',
-    skinTypes: ['All', 'Dry'],
-    blurb: 'A hydrating fruit enzyme that smooths and revives tired, thirsty skin.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
   {
     id: 'botanical-bloom-mask',
     name: 'Botanical Bloom Hydrating Mask',

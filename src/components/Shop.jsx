@@ -7,6 +7,8 @@ import {
   CATEGORY_COLORS,
   DROPSHIP_LABEL,
   INSTOCK_LABEL,
+  SHOW_PRICES,
+  formatPrice,
   productInitials,
 } from '../data/skinScriptProducts';
 import './Shop.css';
@@ -48,7 +50,7 @@ function ProductCard({ product }) {
         </div>
 
         <div className="shop__footer">
-          <span className="shop__price">${product.price.toFixed(2)}</span>
+          <span className="shop__price">{formatPrice(product.price)}</span>
           <button
             className="btn btn-primary shop__add"
             onClick={() => addItem(product.id)}
@@ -119,8 +121,11 @@ export default function Shop() {
             </div>
 
             <p className="shop__note">
-              Prices are suggested retail. Have a question about what's right for your
-              skin? <a {...getBookingLinkProps()}>Book a consultation</a> and Kristin
+              {SHOW_PRICES
+                ? 'Prices are suggested retail. '
+                : 'Pricing coming soon. '}
+              Have a question about what's right for your skin?{' '}
+              <a {...getBookingLinkProps()}>Book a consultation</a> and Kristin
               will build your routine with you.
             </p>
           </>

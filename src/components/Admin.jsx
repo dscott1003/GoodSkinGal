@@ -102,7 +102,7 @@ function Dashboard() {
       </header>
 
       <div className="admin__stats">
-        <div className="admin__stat"><b>{stats.listed}</b><span>Listed in shop</span></div>
+        <div className="admin__stat"><b>{stats.listed}</b><span>Public in shop</span></div>
         <div className="admin__stat"><b>{stats.inHouse}</b><span>In-house / pickup</span></div>
         <div className="admin__stat"><b>{stats.dropship}</b><span>Ships in 24 hrs</span></div>
         <div className="admin__stat"><b>{stats.total}</b><span>Total in catalog</span></div>
@@ -110,10 +110,13 @@ function Dashboard() {
 
       <div className="admin__legend">
         <p>
-          <b>Listed</b> — shows the product in the public shop.
+          <b>Public</b> — when on, the product appears in the shop. When off, it is
+          NOT listed on the site.
           &nbsp;<b>Ships in 24 hrs</b> — Skin Script drop-ships it to the client
           ("Ships in 24 hrs, delivery times may vary based off location"). Off = you
           keep it in stock for pickup.
+          &nbsp;Prices currently display publicly as <b>$xx.xx</b> until final pricing
+          is set — you can still enter the real numbers here now.
         </p>
       </div>
 
@@ -124,7 +127,7 @@ function Dashboard() {
             <div className="admin__row admin__row--head">
               <span>Product</span>
               <span>Price</span>
-              <span>Listed</span>
+              <span>Public</span>
               <span>Ships 24h</span>
               <span>In stock</span>
             </div>

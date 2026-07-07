@@ -1,22 +1,33 @@
 import { useMemo } from 'react';
 import { useCart } from '../shop/CartContext';
 import { useCatalog } from '../shop/catalogStore';
-import { DROPSHIP_LABEL, productInitials, CATEGORY_COLORS } from '../data/skinScriptProducts';
+import {
+  DROPSHIP_LABEL,
+  SHOW_PRICES,
+  formatPrice,
+  productInitials,
+  CATEGORY_COLORS,
+} from '../data/skinScriptProducts';
 import './CartDrawer.css';
 
 const ORDER_EMAIL = 'yourgoodskingal@gmail.com';
 
 function buildOrderMailto(lines, subtotal) {
+  const pricePart = (l) =>
+    SHOW_PRICES
+      ? ` ($${l.price.toFixed(2)} each = $${(l.qty * l.price).toFixed(2)})`
+      : ' (price TBD)';
+
   const body = [
     'Hi Kristin! I would like to order the following Skin Script products:',
     '',
     ...lines.map(
       (l) =>
-        `- ${l.qty} x ${l.name} ($${l.price.toFixed(2)} each = $${(l.qty * l.price).toFixed(2)})` +
+        `- ${l.qty} x ${l.name}${pricePart(l)}` +
         (l.dropship ? '  [ship to me]' : '  [pick up]')
     ),
     '',
-    `Estimated subtotal: $${subtotal.toFixed(2)}`,
+    SHOW_PRICES ? `Estimated subtotal: $${subtotal.toFixed(2)}` : 'Estimated subtotal: TBD',
     '',
     'My name: ',
     'Best phone: ',
@@ -109,7 +120,7 @@ export default function CartDrawer() {
                         </button>
                       </div>
                     </div>
-                    <span className="cart__item-price">${(l.qty * l.price).toFixed(2)}</span>
+                    <span className="cart__item-price">{formatPrice(l.qty * l.price)}</span>
                   </div>
                 );
               })}
@@ -118,7 +129,7 @@ export default function CartDrawer() {
             <div className="cart__foot">
               <div className="cart__subtotal">
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>{formatPrice(subtotal)}</span>
               </div>
               {hasShipped && (
                 <p className="cart__ship-note">
