@@ -13,17 +13,37 @@ import {
 } from '../data/skinScriptProducts';
 import './Shop.css';
 
+// Auto-load any official product photos placed in src/assets/products/.
+// Files are named by product id (e.g. "peptide-eye-serum.webp"). Missing
+// images gracefully fall back to the branded initials placeholder.
+const PRODUCT_IMAGE_MODULES = import.meta.glob(
+  '../assets/products/*.{webp,jpg,jpeg,png}',
+  { eager: true, import: 'default' }
+);
+
+const IMAGE_BY_ID = {};
+for (const path in PRODUCT_IMAGE_MODULES) {
+  const file = path.split('/').pop();
+  const id = file.replace(/\.(webp|jpg|jpeg|png)$/i, '');
+  IMAGE_BY_ID[id] = PRODUCT_IMAGE_MODULES[path];
+}
+
 function ProductCard({ product, showPrices }) {
   const { addItem } = useCart();
   const [g1, g2] = CATEGORY_COLORS[product.category] || ['#e7dccf', '#cbb6a2'];
+  const image = IMAGE_BY_ID[product.id];
 
   return (
     <article className="shop__card">
       <div
-        className="shop__art"
-        style={{ background: `linear-gradient(135deg, ${g1}, ${g2})` }}
+        className={`shop__art ${image ? 'shop__art--photo' : ''}`}
+        style={image ? undefined : { background: `linear-gradient(135deg, ${g1}, ${g2})` }}
       >
-        <span className="shop__art-initials">{productInitials(product.name)}</span>
+        {image ? (
+          <img className="shop__art-img" src={image} alt={product.name} loading="lazy" />
+        ) : (
+          <span className="shop__art-initials">{productInitials(product.name)}</span>
+        )}
         <span className="shop__art-size">{product.size}</span>
       </div>
 

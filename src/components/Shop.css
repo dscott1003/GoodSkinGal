@@ -73,6 +73,17 @@
   justify-content: center;
 }
 
+.shop__art--photo {
+  background: var(--white);
+}
+
+.shop__art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
 .shop__art-initials {
   font-family: var(--font-display);
   font-size: 3rem;
