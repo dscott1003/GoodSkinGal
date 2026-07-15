@@ -24,6 +24,7 @@ export const PUBLISHED_OVERRIDES = {
   'retail-intro-kit': { pro: true },
   'botanical-bloom-hydrating-mask': { dropship: true, listed: false, pro: true },
   'revitalizing-cucumber-treatment': { listed: false, dropship: true },
+  'pump-for-retail-cleansers': { listed: false },
 };
 
 export const PUBLISHED_PURGED = [];
