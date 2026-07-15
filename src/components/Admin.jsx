@@ -92,7 +92,7 @@ function Dashboard() {
     const json = exportConfig();
     try {
       await navigator.clipboard.writeText(json);
-      flash('Config copied to clipboard');
+      flash('Copied — paste it to your developer to publish');
     } catch {
       flash('Copy failed — see console');
       // eslint-disable-next-line no-console
@@ -259,7 +259,7 @@ function Dashboard() {
       )}
 
       <footer className="admin__footer">
-        <button className="btn btn-secondary" onClick={doExport}>Copy config (JSON)</button>
+        <button className="btn btn-secondary" onClick={doExport}>Copy changes to publish</button>
         <button
           className="admin__reset"
           onClick={() => {
@@ -273,11 +273,16 @@ function Dashboard() {
         </button>
       </footer>
 
-      <p className="admin__note">
-        Note: edits are stored in this browser. To control the live shop from any
-        device and for all visitors, we'll connect a small hosted backend — ask your
-        developer to enable it.
-      </p>
+      <div className="admin__note">
+        <b>How to save &amp; publish:</b>
+        <ol>
+          <li>Edit freely — every change saves automatically to this browser (look for the "saved" note up top).</li>
+          <li>When you're happy, click <b>"Copy changes to publish"</b> above.</li>
+          <li>Send that copied text to your developer — it gets loaded into the live site so everyone sees it, on every device.</li>
+        </ol>
+        Your edits stay on this device until they're published. (Want a one‑click
+        "Save &amp; publish" button instead? We can add a small hosted backend anytime.)
+      </div>
     </div>
   );
 }

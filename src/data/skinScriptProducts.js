@@ -24,6 +24,7 @@
 // runtime from the Admin dashboard (stored per-device). See catalogStore.js.
 
 import PRODUCTS_DATA from './skinScriptProducts.generated.json';
+import { PUBLISHED_OVERRIDES, PUBLISHED_PURGED } from './publishedOverrides';
 
 export const DROPSHIP_LABEL = 'Ships in 24 hrs, delivery times may vary based off location';
 export const INSTOCK_LABEL = 'In stock — ready at your next visit';
@@ -59,22 +60,33 @@ function fallbackBlurb(p) {
   return `A Skin Script professional formula — ${article} ${p.category.toLowerCase()} selection curated by Kristin.`;
 }
 
-export const PRODUCTS = PRODUCTS_DATA.map((p) => ({
-  id: p.id,
-  name: p.name,
-  category: p.category,
-  skinTypes: p.skinTypes || [],
-  price: p.price,
-  size: p.size || '',
-  blurb: p.blurb && p.blurb.length > 3 ? p.blurb : fallbackBlurb(p),
-  image: p.image || '',
-  pro: !!p.pro,
-  retail: !!p.retail,
-  listed: !!p.listed,
-  dropship: !!p.dropship,
-  inStock: !!p.inStock,
-  trashed: false,
-}));
+// Published overrides (committed, live for everyone) layered on the raw catalog.
+const PUBLISHED_FIELDS = ['price', 'listed', 'dropship', 'inStock', 'pro'];
+const purgedSet = new Set(PUBLISHED_PURGED);
+
+export const PRODUCTS = PRODUCTS_DATA.filter((p) => !purgedSet.has(p.id)).map((p) => {
+  const base = {
+    id: p.id,
+    name: p.name,
+    category: p.category,
+    skinTypes: p.skinTypes || [],
+    price: p.price,
+    size: p.size || '',
+    blurb: p.blurb && p.blurb.length > 3 ? p.blurb : fallbackBlurb(p),
+    image: p.image || '',
+    pro: !!p.pro,
+    retail: !!p.retail,
+    listed: !!p.listed,
+    dropship: !!p.dropship,
+    inStock: !!p.inStock,
+    trashed: false,
+  };
+  const o = PUBLISHED_OVERRIDES[p.id] || {};
+  for (const field of PUBLISHED_FIELDS) {
+    if (o[field] !== undefined) base[field] = o[field];
+  }
+  return base;
+});
 
 // Categories present in the data, in preferred order, with 'All' first.
 const present = new Set(PRODUCTS.map((p) => p.category));
