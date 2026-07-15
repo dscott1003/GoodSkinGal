@@ -156,10 +156,10 @@
     height: 100%;
     background: var(--cream);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1.5rem;
-    padding: 4.5rem 1.25rem 1.75rem;
+    padding: calc(6.5rem + env(safe-area-inset-top, 0px)) 1.25rem 2rem;
     overflow-y: auto;
     z-index: 105;
     opacity: 0;
