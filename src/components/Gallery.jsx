@@ -61,8 +61,7 @@ function GalleryMosaic({ images }) {
         <span className="section-label">Gallery</span>
         <h2 className="section-title">A peek inside the experience</h2>
         <p className="section-subtitle">
-          Real skin, real results — a living look at the faces, treatments, and
-          glow that come through the studio.
+          Every complexion is one of a kind.
         </p>
 
         <div className="gallery__grid gallery__grid--live">

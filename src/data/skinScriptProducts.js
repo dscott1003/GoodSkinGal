@@ -1,365 +1,104 @@
-// Skin Script Rx product catalog carried by GoodSkinGal.
+// Skin Script product catalog carried by GoodSkinGal.
 //
-// Fulfillment model:
-//   - inStock:  Kristin keeps these on the shelf ("In stock — ready at your visit").
-//   - dropship: Skin Script ships directly to the client
-//               ("Ships in 24 hrs, delivery times may vary based off location").
+// The product list is generated from Skin Script's own live catalog
+// (skinscript.com) and stored in skinScriptProducts.generated.json. To refresh
+// it, re-run scripts/gen_catalog.ps1 against a fresh Store API snapshot.
 //
-// These are DEFAULTS. Kristin can override `listed`, `dropship`, `price`, and
-// `inStock` at runtime from the Admin dashboard (stored per-device). See
-// src/shop/catalogStore.js.
+// Fields per product:
+//   id        - Skin Script product slug (stable key)
+//   name      - display name
+//   category  - shop grouping (see CATEGORY_ORDER below)
+//   skinTypes - skin-type tags
+//   price     - real online retail (USD); HIDDEN publicly until Kristin flips
+//               the "Show prices" switch in Admin
+//   size      - pack size if present in the name
+//   blurb     - short description
+//   image     - official product photo URL from skinscript.com
+//   pro       - professional / back-bar item ("Pro" toggle in Admin)
+//   retail    - part of Skin Script's retail line (drives default visibility)
+//   listed    - shown in the public shop (default = retail)
+//   dropship  - uses the "Ships in 24 hrs" label instead of in-house pickup
+//   inStock   - informational in-house quantity flag
 //
-// Prices are approximate suggested retail (USD) and easily edited in Admin.
+// listed / dropship / price / inStock / pro / trashed are all overridable at
+// runtime from the Admin dashboard (stored per-device). See catalogStore.js.
+
+import PRODUCTS_DATA from './skinScriptProducts.generated.json';
 
 export const DROPSHIP_LABEL = 'Ships in 24 hrs, delivery times may vary based off location';
 export const INSTOCK_LABEL = 'In stock — ready at your next visit';
 
-// Prices below are real online retail (USD) so they're ready to go live.
-// They are HIDDEN publicly by default — the shop shows "$xx.xx" until Kristin
-// flips the "Show prices" switch in the Admin dashboard. This is the default
-// used the first time the site loads on a device; the live value is stored via
-// src/shop/settingsStore.js.
+// Prices are loaded and ready, but HIDDEN publicly by default. The shop shows
+// "$xx.xx" until Kristin flips the "Show prices" switch in Admin. The live
+// value is stored via src/shop/settingsStore.js.
 export const DEFAULT_SHOW_PRICES = false;
 
 export function formatPrice(price, show) {
   return show ? `$${Number(price).toFixed(2)}` : '$xx.xx';
 }
 
+// Preferred display order for the shop's category chips.
+const CATEGORY_ORDER = [
+  'Cleansers',
+  'Toners',
+  'Exfoliants',
+  'Enzymes',
+  'Masks',
+  'Serums & Lips',
+  'Moisturizers',
+  'Sunscreen (SPF)',
+  'Peel Care',
+  'Chemical Peels',
+  'Tools',
+  'Kits & Collections',
+  'Other',
+];
+
+function fallbackBlurb(p) {
+  const article = /^[aeiou]/i.test(p.category) ? 'an' : 'a';
+  return `A Skin Script professional formula — ${article} ${p.category.toLowerCase()} selection curated by Kristin.`;
+}
+
+export const PRODUCTS = PRODUCTS_DATA.map((p) => ({
+  id: p.id,
+  name: p.name,
+  category: p.category,
+  skinTypes: p.skinTypes || [],
+  price: p.price,
+  size: p.size || '',
+  blurb: p.blurb && p.blurb.length > 3 ? p.blurb : fallbackBlurb(p),
+  image: p.image || '',
+  pro: !!p.pro,
+  retail: !!p.retail,
+  listed: !!p.listed,
+  dropship: !!p.dropship,
+  inStock: !!p.inStock,
+  trashed: false,
+}));
+
+// Categories present in the data, in preferred order, with 'All' first.
+const present = new Set(PRODUCTS.map((p) => p.category));
 export const CATEGORIES = [
   'All',
-  'Cleansers',
-  'Toners & Pads',
-  'Exfoliants',
-  'Serums',
-  'Moisturizers',
-  'Sun Protection',
-  'Eyes & Lips',
-  'Masks & Enzymes',
-  'Sets',
+  ...CATEGORY_ORDER.filter((c) => present.has(c)),
+  ...[...present].filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
 ];
 
-// listed:   shown in the shop
-// dropship: uses the "Ships in 24 hrs" label instead of in-stock
-// inStock:  informational quantity flag for in-house retail
-export const PRODUCTS = [
-  // ---------------- Cleansers ----------------
-  {
-    id: 'green-tea-citrus-cleanser',
-    name: 'Green Tea Citrus Cleanser',
-    category: 'Cleansers',
-    price: 44.89,
-    size: '6 oz',
-    skinTypes: ['Normal', 'Combination', 'Sensitive'],
-    blurb: 'A gentle, refreshing gel cleanser with green tea and citrus to soothe and calm without stripping.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'pomegranate-antioxidant-cleanser',
-    name: 'Pomegranate Antioxidant Cleanser',
-    category: 'Cleansers',
-    price: 44.89,
-    size: '6.4 oz',
-    skinTypes: ['Dry', 'Sensitive', 'Rosacea'],
-    blurb: 'Creamy antioxidant cleanser rich in pomegranate — ideal for dry, sensitive, or rosacea-prone skin.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'glycolic-cleanser',
-    name: 'Glycolic Cleanser',
-    category: 'Cleansers',
-    price: 50.50,
-    size: '6 oz',
-    skinTypes: ['Oily', 'Acne', 'Aging'],
-    blurb: 'A resurfacing glycolic acid cleanser that helps refine texture, unclog pores, and brighten.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'charcoal-clay-cleanser',
-    name: 'Charcoal Clay Cleanser',
-    category: 'Cleansers',
-    price: 44.89,
-    size: '4 oz',
-    skinTypes: ['Oily', 'Acne', 'Congested'],
-    blurb: 'Detoxifying charcoal and clay draw out impurities and absorb excess oil for a clarified finish.',
-    listed: true,
-    dropship: false,
-    inStock: false,
-  },
-
-  // ---------------- Toners & Pads ----------------
-  {
-    id: 'cucumber-hydration-toner',
-    name: 'Cucumber Hydration Toner',
-    category: 'Toners & Pads',
-    price: 33.67,
-    size: '6 oz',
-    skinTypes: ['All', 'Sensitive'],
-    blurb: 'A hydrating, alcohol-free mist that calms and preps the skin for serums and moisturizer.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'clarifying-toner-pads',
-    name: 'Clarifying Toner Pads',
-    category: 'Toners & Pads',
-    price: 30.86,
-    size: '50 pads',
-    skinTypes: ['Oily', 'Acne'],
-    blurb: 'Pre-soaked pads with salicylic acid to keep pores clear and reduce breakouts on the go.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'glycolic-retinol-pads',
-    name: 'Glycolic & Retinol Pads',
-    category: 'Toners & Pads',
-    price: 42.08,
-    size: '50 pads',
-    skinTypes: ['Aging', 'Sun Damage'],
-    blurb: 'Nightly resurfacing pads pairing glycolic acid with retinol to smooth and renew.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-
-  // ---------------- Exfoliants ----------------
-  {
-    id: 'raspberry-refining-scrub',
-    name: 'Raspberry Refining Scrub',
-    category: 'Exfoliants',
-    price: 44.89,
-    size: '4 oz',
-    skinTypes: ['All'],
-    blurb: 'A polishing scrub with raspberry seeds and jojoba beads to sweep away dull, dry cells.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-
-  // ---------------- Serums ----------------
-  {
-    id: 'vitamin-c-green-tea-serum',
-    name: 'Vitamin C / Green Tea Serum',
-    category: 'Serums',
-    price: 61.72,
-    size: '1 oz',
-    skinTypes: ['All', 'Aging', 'Dull'],
-    blurb: 'Brightening antioxidant serum that helps even tone and defend against environmental stress.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'ageless-hydrating-serum',
-    name: 'Ageless Skin Hydrating Serum',
-    category: 'Serums',
-    price: 56.11,
-    size: '1 oz',
-    skinTypes: ['Dry', 'Aging'],
-    blurb: 'A plumping hydration serum with hyaluronic acid and peptides for a smoother, dewy look.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'mandelic-brightening-serum',
-    name: 'Mandelic Brightening Serum',
-    category: 'Serums',
-    price: 56.11,
-    size: '1 oz',
-    skinTypes: ['Hyperpigmentation', 'Acne'],
-    blurb: 'Gentle mandelic acid targets dark spots and uneven tone while refining texture.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'hyaluronic-serum',
-    name: 'Hyaluronic Acid Serum',
-    category: 'Serums',
-    price: 56.11,
-    size: '1 oz',
-    skinTypes: ['Dry', 'Dehydrated', 'All'],
-    blurb: 'Weightless multi-molecular hyaluronic acid delivers deep, lasting hydration.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'retinol-serum',
-    name: 'Retinol Serum',
-    category: 'Serums',
-    price: 61.72,
-    size: '1 oz',
-    skinTypes: ['Aging', 'Sun Damage'],
-    blurb: 'A nightly retinol treatment to support cell turnover, firmness, and a refined surface.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-
-  // ---------------- Moisturizers ----------------
-  {
-    id: 'hydrating-moisturizer',
-    name: 'Hydrating Moisturizer',
-    category: 'Moisturizers',
-    price: 44.89,
-    size: '1.7 oz',
-    skinTypes: ['Dry', 'Normal'],
-    blurb: 'A rich daily moisturizer that restores softness and locks in lasting hydration.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'light-aloe-moisturizer',
-    name: 'Light Aloe Moisturizer',
-    category: 'Moisturizers',
-    price: 30.86,
-    size: '2 oz',
-    skinTypes: ['Oily', 'Combination', 'Acne'],
-    blurb: 'A featherlight aloe-based hydrator perfect for oily and combination skin.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'acai-berry-moisturizer',
-    name: 'Acai Berry Moisturizer',
-    category: 'Moisturizers',
-    price: 51.90,
-    size: '1.7 oz',
-    skinTypes: ['Aging', 'Dry'],
-    blurb: 'Antioxidant-rich acai and vitamins nourish and protect mature or dehydrated skin.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'barrier-balancing-moisturizer',
-    name: 'Barrier Balancing Moisturizer',
-    category: 'Moisturizers',
-    price: 51.90,
-    size: '1.7 oz',
-    skinTypes: ['Sensitive', 'Rosacea', 'Compromised'],
-    blurb: 'Cacteen and ceramides rebuild a compromised barrier and calm redness.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'peptide-restoration-moisturizer',
-    name: 'Peptide Restoration Moisturizer',
-    category: 'Moisturizers',
-    price: 56.11,
-    size: '1.7 oz',
-    skinTypes: ['Aging'],
-    blurb: 'A peptide-powered night cream that supports firmness and a rested, restored look.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-
-  // ---------------- Sun Protection ----------------
-  {
-    id: 'sheer-protection-spf-30',
-    name: 'Sheer Protection SPF 30',
-    category: 'Sun Protection',
-    price: 42.08,
-    size: '2.5 oz',
-    skinTypes: ['All'],
-    blurb: 'A lightweight, non-greasy daily sunscreen that layers beautifully under makeup.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-  {
-    id: 'tinted-spf-30',
-    name: 'Tinted Sheer Protection SPF 30',
-    category: 'Sun Protection',
-    price: 42.08,
-    size: '2.5 oz',
-    skinTypes: ['All'],
-    blurb: 'The daily favorite with a universal tint for a smooth, even, protected finish.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-
-  // ---------------- Eyes & Lips ----------------
-  {
-    id: 'peptide-eye-serum',
-    name: 'Peptide Eye Serum',
-    category: 'Eyes & Lips',
-    price: 51.90,
-    size: '0.5 oz',
-    skinTypes: ['All', 'Aging'],
-    blurb: 'A cooling peptide roller-serum to de-puff and brighten the delicate eye area.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-  {
-    id: 'lip-balm-spf-15',
-    name: 'Lip Balm with SPF 15',
-    category: 'Eyes & Lips',
-    price: 12.00,
-    size: '0.15 oz',
-    skinTypes: ['All'],
-    blurb: 'A nourishing, protective lip balm with SPF 15 for everyday softness.',
-    listed: true,
-    dropship: false,
-    inStock: true,
-  },
-
-  // ---------------- Masks & Enzymes ----------------
-  {
-    id: 'botanical-bloom-mask',
-    name: 'Botanical Bloom Hydrating Mask',
-    category: 'Masks & Enzymes',
-    price: 42.08,
-    size: '2 oz',
-    skinTypes: ['Dry', 'Dehydrated'],
-    blurb: 'A soothing, botanical hydrating mask for a plump, glowing complexion.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-
-  // ---------------- Sets ----------------
-  {
-    id: 'ultimate-glow-up-set',
-    name: 'Ultimate Glow Up Set',
-    category: 'Sets',
-    price: 120.00,
-    size: 'Kit',
-    skinTypes: ['All'],
-    blurb: 'A curated routine — cleanse, treat, hydrate, and protect — bundled at a set price.',
-    listed: true,
-    dropship: true,
-    inStock: false,
-  },
-];
-
-// Deterministic accent color per category, used for the product-card artwork.
+// Deterministic accent color per category, used for the card artwork fallback.
 export const CATEGORY_COLORS = {
   Cleansers: ['#c9dce6', '#8fb2c4'],
-  'Toners & Pads': ['#d7e6dd', '#93b8a4'],
+  Toners: ['#d7e6dd', '#93b8a4'],
   Exfoliants: ['#efd9c7', '#d3a982'],
-  Serums: ['#e6d3e2', '#b48fac'],
+  Enzymes: ['#f0dcc0', '#d8b271'],
+  Masks: ['#e2ddc4', '#bcb478'],
+  'Serums & Lips': ['#e6d3e2', '#b48fac'],
   Moisturizers: ['#e7dccf', '#cbb6a2'],
-  'Sun Protection': ['#f3e5c0', '#dcc079'],
-  'Eyes & Lips': ['#e9cfd2', '#c795a0'],
-  'Masks & Enzymes': ['#e2ddc4', '#bcb478'],
-  Sets: ['#cbd6e6', '#8f9fc4'],
+  'Sunscreen (SPF)': ['#f3e5c0', '#dcc079'],
+  'Peel Care': ['#dfe1ea', '#a9afc4'],
+  'Chemical Peels': ['#e9cfd2', '#c795a0'],
+  Tools: ['#d6dbe0', '#9aa7b3'],
+  'Kits & Collections': ['#cbd6e6', '#8f9fc4'],
+  Other: ['#e7dccf', '#cbb6a2'],
 };
 
 export function productInitials(name) {

@@ -1,0 +1,1535 @@
+﻿[
+    {
+        "id":  "cranberry-turnover-peel",
+        "name":  "Cranberry Turnover Peel",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  36,
+        "size":  "",
+        "blurb":  "",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/Cranberry_Peel4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "30-glycolic-peel",
+        "name":  "Glycolic Peel",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  30,
+        "size":  "",
+        "blurb":  "",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/07/GlycolicPeel_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "20-lactic-peel",
+        "name":  "Lactic Peel",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  40,
+        "size":  "",
+        "blurb":  "",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/LacticPeel_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pro-bundle-the-peels",
+        "name":  "Pro Bundle – The Peels",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+
+                      ],
+        "price":  140,
+        "size":  "",
+        "blurb":  "Backbar essentials for targeted exfoliation and advanced treatment results.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/pro-bundle-peels-group-w-training-manual.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pumpkin-peel-lactic",
+        "name":  "Pumpkin Peel with 15% Lactic",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  45.25,
+        "size":  "",
+        "blurb":  "",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/pumpkin_peel_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "10-tca-peel",
+        "name":  "TCA Peel",
+        "category":  "Chemical Peels",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  70,
+        "size":  "",
+        "blurb":  "",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/TCADepigmentationPeel_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "charcoal-clay-cleanser",
+        "name":  "Charcoal Clay Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "Formulated for oily, combination, and congested skin types, Charcoal Clay Cleanser uses a blend of coconut-derived charcoal and kaolin clay to help remove excess oil, surface debris, and...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/CharcoalClayCleanser_6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "glycolic-cleanser",
+        "name":  "Glycolic Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Acne-safe"
+                      ],
+        "price":  1.95,
+        "size":  "",
+        "blurb":  "Award-winning Glycolic Cleanser is a professional-strength, exfoliating cleanser formulated to support smoother skin texture and a more radiant complexion. With glycolic acid and a blend...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/GlycolicCleanser_6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "green-tea-citrus-cleanser",
+        "name":  "Green Tea Citrus Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "Award-winning Green Tea Cleanser is a foamy facial cleanser formulated to purify the skin while providing powerful antioxidant support. Enriched with green tea, botanical extracts, and fr...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/green_tea_citrus_cleanser_6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "honey-brightening-cleanser",
+        "name":  "Honey Brightening Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  2,
+        "size":  "",
+        "blurb":  "Award-winning Honey Brightening Cleanser is a lightly lathering formula designed to refresh the skin while supporting clarity and brightness. With a balanced blend of mandelic and lactic...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/HoneyBrighteningCleanser_6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pomegranate-antioxidant-cleanser",
+        "name":  "Pomegranate Antioxidant Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "This gentle yet effective daily creamy cleanser removes impurities while replenishing and protecting the skin’s natural barrier. Powered by pomegranate and grape seed extracts, it provide...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/pomegranate_antioxidant_cleanser._6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "raspberry-refining-cleansers",
+        "name":  "Raspberry Refining Cleanser",
+        "category":  "Cleansers",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "Raspberry Refining Cleanser is an exfoliating, foaming gel formula that helps improve the appearance of breakouts and uneven texture. With a combination of 2% glycolic acid and 2% salicyl...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/RaspberryRefiningCleanser_6.4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pump-for-retail-cleansers",
+        "name":  "Retail Cleanser Pump",
+        "category":  "Cleansers",
+        "skinTypes":  [
+
+                      ],
+        "price":  0.55,
+        "size":  "",
+        "blurb":  "A must have for cleansers.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/silver_pump_retail_cleanser-scaled-3.webp",
+        "pro":  true,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "berry-cloud-facial",
+        "name":  "Berry Cloud Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  69.75,
+        "size":  "",
+        "blurb":  "Drift into a state of pure bliss and brighter-looking skin with the Berry Cloud Facial.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/BerryCloudFacial1.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "blueberry-enzyme",
+        "name":  "Blueberry Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  45.25,
+        "size":  "",
+        "blurb":  ". Blueberry Enzyme is an effective resurfacing treatment that offers both exfoliation and protection. Designed to combat dullness, mild congestion, and environmental stress, this antioxid...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/BlueberryEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "cherry-enzyme",
+        "name":  "Cherry Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo"
+                      ],
+        "price":  45.25,
+        "size":  "",
+        "blurb":  ". Cherry Enzyme is a high-performance exfoliant that combines tart and sweet cherry extracts with gentle alpha hydroxy acids to deeply renew, hydrate, and restore radiance. Formulated wit...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/CherryEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "coconut-papaya-enzyme",
+        "name":  "Coconut Papaya Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  39.5,
+        "size":  "",
+        "blurb":  ". This enzyme is a creamy, indulgent formula perfect for clients with dry, dull, or sensitive skin. The combination of coconut and papaya fruit purees offers a mild yet effective exfoliat...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/CoconutPapayaEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "desert-collection-aloe-and-copper-clay-facial",
+        "name":  "Desert Collection ~ Aloe and Copper Clay Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  72,
+        "size":  "",
+        "blurb":  "Soothe, smooth, and restore balance with this calming treatment.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/AloeEnzyme_CopperClayMask_website1.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "desert-collection-prickly-pear-verde-vine-facial",
+        "name":  "Desert Collection ~ Prickly Pear \u0026 Verde Vine Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  72,
+        "size":  "",
+        "blurb":  "Reveal a more radiant-looking complexion with this immersive desert escape infused with antioxidant-rich botanicals. Prickly Pear \u0026 Fig Enzyme is an exfoliating treatment designed to help...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/07/PricklyPearVerdeVine3.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "eucalyptus-enzyme",
+        "name":  "Eucalyptus Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  48.75,
+        "size":  "",
+        "blurb":  "Professional non-acid enzyme exfoliating treatment designed to reveal a soft, calm, and radiant-looking complexion . Eucalyptus Enzyme features antioxidant-rich botanicals to help support...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/EucalyptusEnzyme_4oz_website.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "golden-tropics-facial",
+        "name":  "Golden Tropics Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  69.75,
+        "size":  "",
+        "blurb":  "The Golden Tropics Facial is a luxurious fusion of jackfruit, coconut, and turmeric that delivers a radiant, vacation-worthy glow. Its sweet, tropical aromatics transport your clients to...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/GoldenTropics1.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "jackfruit-enzyme",
+        "name":  "Jackfruit Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  47.5,
+        "size":  "",
+        "blurb":  ". Jackfruit Enzyme is a mild exfoliating treatment formulated with pyruvic acid, bromelain, and mandelic acid to help soften the look of skin and improve the appearance of uneven tone. Ja...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/JackfruitEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "lemon-honey-signature-facial",
+        "name":  "Lemon Honey Signature Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  58,
+        "size":  "",
+        "blurb":  "Classic Award-Winning Facial",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/01/LemonHoneyFacial_bowl1_q60.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "lemon-zest-enzyme",
+        "name":  "Lemon Zest Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  41.5,
+        "size":  "",
+        "blurb":  "Award Winning Enzyme",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/lemon_zest_4oz.jpg",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "old-fashioned-facial",
+        "name":  "Old Fashioned Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  71.5,
+        "size":  "",
+        "blurb":  "Experience the timeless indulgence of our Old Fashioned Facial. Formulated with antioxidant-rich ingredients, this facial helps improve the overall look of skin, revealing a more refreshe...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/OldFashionedFacial1.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pineapple-enzyme",
+        "name":  "Pineapple Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  45.25,
+        "size":  "",
+        "blurb":  ". This award-winning fruit-forward enzyme is a vibrant option for dull, rough, or breakout-prone skin. Formulated with pineapple and papaya fruit extracts, it delivers gentle enzymatic ex...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/01/PineappleEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pineapple-honey-signature-facial",
+        "name":  "Pineapple Honey Signature Facial",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  64,
+        "size":  "",
+        "blurb":  "Classic Award-Winning Facial",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/01/PineappleHoney2_q70.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pomegranate-enzyme",
+        "name":  "Pomegranate Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  36.5,
+        "size":  "",
+        "blurb":  ". Pomegranate Enzyme delivers multi-action exfoliation and antioxidant-powered treatment. Designed to smooth texture, refine pores, and brighten skin tone, this enzyme is powered by lacti...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/pomegranate_enzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pumpkin-enzyme",
+        "name":  "Pumpkin Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  45.25,
+        "size":  "",
+        "blurb":  ". Pumpkin Enzyme is formulated to deliver exfoliation and promote a brighter, refreshed appearance. Powered by pumpkin-derived enzymes and supported by vitamins A and C, this professional...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/pumkin_enzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "revitalizing-cucumber-treatment",
+        "name":  "Revitalizing Cucumber Treatment",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  5,
+        "size":  "",
+        "blurb":  "Revitalizing Cucumber Treatment is a gentle exfoliating gel that combines the cooling, calming power of cucumber with the enzymatic action of papain to lightly dissolve dead skin buildup...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/05/cc_treatment_1.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "smoked-bourbon-enzyme",
+        "name":  "Smoked Bourbon Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  48.25,
+        "size":  "",
+        "blurb":  ". Smoked Bourbon Enzyme, enriched with the essence of French Oak, delivers a refined exfoliating experience that helps smooth and refresh the look of skin. Featuring X-pressin™, an innova...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/05/SmokedBourbonEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "strawberry-enzyme",
+        "name":  "Strawberry Enzyme",
+        "category":  "Enzymes",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  47.5,
+        "size":  "",
+        "blurb":  ". Strawberry Enzyme is a must-have addition to your treatment room whenever it’s in season. This vibrant blend of strawberry fruit, lactic acid, and hibiscus flower helps refine the appea...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/StrawberryEnzyme_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "clarifying-toner-pads",
+        "name":  "Clarifying Toner Pads",
+        "category":  "Exfoliants",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  1.5,
+        "size":  "",
+        "blurb":  "Clarifying Toner Pads are a targeted blend of glycolic acid, salicylic acid, and tea tree oil to help exfoliate, reduce excess oil, and support clearer-looking skin. Designed to visibly i...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/clarifying_toner_pads_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "glycolic-and-retinol-pads",
+        "name":  "Glycolic and Retinol Pads",
+        "category":  "Exfoliants",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  2,
+        "size":  "",
+        "blurb":  "Our award-winning Glycolic and Retinol Pads are formulated to visibly improve skin tone, texture, and clarity. Featuring a blend of exfoliating and brightening ingredients, including glyc...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/glycolic_and_retinol_pads_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "mandelic-brightening-serum",
+        "name":  "Mandelic Brightening Serum",
+        "category":  "Exfoliants",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  5,
+        "size":  "",
+        "blurb":  "Award-winning Mandelic Brightening Serum is a targeted treatment that gently exfoliates while supporting visible improvements in uneven skin tone, clarity, and skin texture. Formulated wi...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/05/MandelicBrighteningSerum_1oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "raspberry-scrub",
+        "name":  "Raspberry Scrub",
+        "category":  "Exfoliants",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily"
+                      ],
+        "price":  1.15,
+        "size":  "",
+        "blurb":  "Raspberry Scrub is a creamy physical exfoliant that helps polish away dead skin buildup while calming and conditioning the skin. This dual-exfoliation formula uses a combination of jojoba...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/RasberryScrub_4oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "retinol-exfoliating-scrub-mask",
+        "name":  "Retinol Exfoliating Scrub",
+        "category":  "Exfoliants",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  3.5,
+        "size":  "",
+        "blurb":  "The award-winning Retinol Exfoliating Scrub is a resurfacing facial exfoliant that combines 2% retinol with fine jojoba beads to support smoother skin texture and a more radiant appearanc...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/RetinolExfoliatingScrub_1.7oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "desert-collection-sensory-mists",
+        "name":  "Desert Collection ~ Sensory Mists",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+
+                      ],
+        "price":  11,
+        "size":  "",
+        "blurb":  "Set the tone. Soothe the senses. Transform treatments with our sensory mists. Renew Sensory Mist: Awaken senses and rejuvenate the spirit with a refreshing aromatic experience designed to...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/01/RoomSprays_q70.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "everyday-balance-travel-kit",
+        "name":  "Everyday Balance Travel Kit",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Sensitive"
+                      ],
+        "price":  28.5,
+        "size":  "",
+        "blurb":  "Keep skin in balance with gentle antioxidants and lightweight hydration. This travel size set is ideal for normal to combination skin.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/EverydayBalance_TravelKit.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "fresh-face-travel-kit",
+        "name":  "Fresh Face Travel Kit",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  27.75,
+        "size":  "",
+        "blurb":  "This balancing travel size trio for congested or oily skin types. Clarify and hydrate without the extra shine, perfect for daily use or post-flight refreshes.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/FreshFace_TravelKit.webp",
+        "pro":  false,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "fully-quenched-travel-kit",
+        "name":  "Fully Quenched Travel Kit",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  31.75,
+        "size":  "",
+        "blurb":  "This travel size trio helps replenish moisture and soothe skin that’s feeling parched, whether from travel, treatments, or the environment.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/FullyQuenched_TravelKit.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pro-bundle-the-fundamentals",
+        "name":  "Pro Bundle – The Fundamentals",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+
+                      ],
+        "price":  440,
+        "size":  "",
+        "blurb":  "Supplies for 64 facials",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/the-fundamentals-group-w-training-manual.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pro-bundle-the-power-pack",
+        "name":  "Pro Bundle – The Power Pack",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+
+                      ],
+        "price":  750,
+        "size":  "",
+        "blurb":  "Supplies for 96 facials",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/pro-bundle-power-pack-group-purple.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pro-bundle-the-vitals",
+        "name":  "Pro Bundle – The Vitals",
+        "category":  "Kits \u0026 Collections",
+        "skinTypes":  [
+
+                      ],
+        "price":  305,
+        "size":  "",
+        "blurb":  "Supplies for 48 facials",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/pro-bundle-vitals-group-purple.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "black-pepper-detox-mask",
+        "name":  "Black Pepper Detox Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  31.25,
+        "size":  "",
+        "blurb":  ". Indulge in the warmth of the Black Pepper Detox Mask, featuring a soothing, spicy aroma for a comforting, sensorial experience.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/05/BlackPepperDetoxMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "botanical-bloom-hydrating-mask",
+        "name":  "Botanical Bloom Hydrating Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  5,
+        "size":  "",
+        "blurb":  "Botanical Bloom Hydrating Mask is a silky, floral-infused treatment mask formulated to restore hydration, boost visible radiance, and support overall skin vitality. Featuring a Super Flor...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/BotanicalBloomHydratingMask_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "charcoal-refining-mask",
+        "name":  "Charcoal Refining Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  28,
+        "size":  "",
+        "blurb":  ". Charcoal Refining Mask is a purifying powerhouse designed to clear, balance, and smooth oily or congested skin. This creamy clay-based formula uses coconut-derived charcoal and advanced...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/CharcoalRefiningMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "coconut-restorative-mask",
+        "name":  "Coconut Restorative Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  30,
+        "size":  "",
+        "blurb":  ". The Coconut Restorative Mask helps soften the appearance of visible redness with moisturizing ingredients like coconut fruit, yogurt extract, honey, and bisabolol. Fensebiome™ and fruct...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/CoconutRestorativeMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "goji-berry-mask",
+        "name":  "Goji Berry Yogurt Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  28,
+        "size":  "",
+        "blurb":  ". Goji Berry Yogurt Mask is a creamy, nutrient-rich formula that targets skin fatigue, dullness, and inflammation. This mask doesn’t just hydrate—it revitalizes. Packed with peptides, pro...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/goji_berry_mask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "golden-honey-nourishing-mask",
+        "name":  "Golden Honey Nourishing Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  28,
+        "size":  "",
+        "blurb":  ". Golden Honey Nourishing Mask is a luxurious, peptide-powered treatment that delivers intense hydration, healing, and barrier repair. Beloved for its rich texture and glowing finish, thi...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/GoldenHoneyNourishingMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "sea-mineral-mask",
+        "name":  "Sea Mineral Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  24,
+        "size":  "",
+        "blurb":  "Drench the skin in marine-powered hydration with this lightweight, soothing mineral gel mask. . Formulated with nutrient-rich wakame algae and advanced marine complexes, Sea Mineral Mask...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/SeaMineralMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "strawberry-spearmint-mask",
+        "name":  "Strawberry Spearmint Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  28,
+        "size":  "",
+        "blurb":  ". Strawberry Spearmint Mask is a clay-based, antioxidant-rich treatment that detoxifies and clarifies while delivering a refreshing minty tingle. Designed to balance excess oil and soothe...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/StrawberrySpearmintMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "white-peach-nourishing-mask",
+        "name":  "White Peach Nourishing Mask",
+        "category":  "Masks",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  30,
+        "size":  "",
+        "blurb":  ". White Peach Nourishing Mask is the perfect ending to this blissful, brightening facial. Formulated with Dermapep™ A350, Indinyl® CA, and Pacifeel™, this mask helps deliver lasting hydra...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/06/WhitePeachNourishingMask_4oz.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "acai-berry-moisturizer",
+        "name":  "Acai Berry Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  3,
+        "size":  "",
+        "blurb":  "Award-winning Acai Berry Moisturizer delivers replenishing hydration, antioxidant defense, and barrier-restoring support for skin in need of nourishment and balance. This lightweight yet...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/acai_berry_moisturizer_1.7oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "ageless-skin-moisturizer",
+        "name":  "Ageless Skin Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "Ageless Skin Moisturizer is a silky, daily-use hydrator formulated to soothe, plump, and protect the skin with a blend of antioxidants, humectants, and calming botanicals. With sodium hya...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/ageless_skin_moisturizer_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "barrier-balancing-moisturizer",
+        "name":  "Barrier Balancing Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Sensitive"
+                      ],
+        "price":  2.5,
+        "size":  "",
+        "blurb":  "Barrier Balancing Moisturizer is a gentle, plant-powered hydrator designed to visibly calm, nourish, and protect the skin without clogging pores or overwhelming the barrier. Rich in cactu...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/barrier_balancing_moisturizer_1.7oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "hydrating-moisturizer",
+        "name":  "Hydrating Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  2.5,
+        "size":  "",
+        "blurb":  "Hydrating Moisturizer is a comforting, velvety formula designed to deliver long-lasting moisture, promote skin resilience, and restore suppleness to dry or mature skin types. Powered by s...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/HydratingMoistuirzer_1.7oz_website.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "light-aloe-moisturizer",
+        "name":  "Light Aloe Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  1.75,
+        "size":  "",
+        "blurb":  "Light Aloe Moisturizer is a refreshing, oil-free formula designed to deliver lasting hydration while supporting a clear, balanced complexion. Formulated with soothing aloe vera, moisture-...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/LightAloeMoisturizer_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "peptide-moisturizer",
+        "name":  "Peptide Moisturizer",
+        "category":  "Moisturizers",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  4.25,
+        "size":  "",
+        "blurb":  "Peptide Moisturizer is a rich, reparative formula designed to support skin renewal, reduce visible signs of aging, and deeply hydrate dry, depleted skin. This advanced moisturizer blends...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/PeptideMoisturizer_1.7oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "cosmo-intro-kit",
+        "name":  "Cosmo Intro Kit",
+        "category":  "Other",
+        "skinTypes":  [
+
+                      ],
+        "price":  117.25,
+        "size":  "",
+        "blurb":  "Designed specifically for cosmetology programs, this curated kit introduces students to the essentials of professional skin care while building confidence in consultation as well as home...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/CosKit1.webp",
+        "pro":  false,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "retail-clinic-kit",
+        "name":  "Retail Clinic Kit",
+        "category":  "Other",
+        "skinTypes":  [
+
+                      ],
+        "price":  140.25,
+        "size":  "",
+        "blurb":  "The Retail Clinic Kit is a curated collection of Skin Script’s top retail essentials, designed specifically for aesthetics schools looking to elevate hands-on education and prepare studen...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/RetailClininKit3.webp",
+        "pro":  false,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "retail-intro-kit",
+        "name":  "Retail Intro Kit",
+        "category":  "Other",
+        "skinTypes":  [
+
+                      ],
+        "price":  108.5,
+        "size":  "",
+        "blurb":  "The Retail Intro Kit is a curated assortment of Skin Script’s best-selling formulas in convenient travel sizes, designed specifically for esthetics and cosmetology schools looking to intr...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/RetailIntroKit.webp",
+        "pro":  false,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "pre-post-peel-rack-card-12-pack",
+        "name":  "Pre/Post Peel Rack Card -12 pack",
+        "category":  "Peel Care",
+        "skinTypes":  [
+
+                      ],
+        "price":  2.5,
+        "size":  "",
+        "blurb":  "Instructional cards for clients to guide on pre-peel prep and post-peel care.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/pre-post-rack-card-front-and-back.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "advanced-renewal-serum",
+        "name":  "Advanced Renewal Serum",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  8.5,
+        "size":  "",
+        "blurb":  "Advanced Renewal Serum features IconicA™, a patented, stabilized form of retinaldehyde (vitamin A), paired with brightening, anti-inflammatory, and barrier-supporting ingredients to deliv...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/AdvancedRenewalSerum_1oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "new-ageless-lip-treatment",
+        "name":  "Ageless Lip Treatment",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  8,
+        "size":  "",
+        "blurb":  "Ageless Lip Treatment is a nutrient-rich lip hydrator formulated to visibly plump, smooth, and comfort dry, delicate lips. Featuring a powerful blend of moisture-boosting ingredients and...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/Peppermint_LipTX.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "ageless-hydrating-serum",
+        "name":  "Ageless Skin Hydrating Serum",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  5.25,
+        "size":  "",
+        "blurb":  "Ageless Hydrating Serum is a concentrated, peptide-infused formula designed to deeply hydrate, visibly smooth fine lines, and strengthen the skin’s moisture barrier. Clinically backed ing...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/AgelessSkinHydratingSerum_1oz_website.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "blemish-spot-treatment",
+        "name":  "Blemish Spot Treatment",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  11.5,
+        "size":  "",
+        "blurb":  "To aid in alleviating active breakouts and treating cystic acne.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/BlemishSpot.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "citrus-c-nourishing-cream",
+        "name":  "Citrus-C Nourishing Cream",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive"
+                      ],
+        "price":  6.5,
+        "size":  "",
+        "blurb":  "Citrus-C Nourishing Cream is an antioxidant-rich serum designed to visibly brighten the skin, support collagen health, and defend against environmental stress. With 5% BV-OSC (oil-soluble...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/CitrusCNourishingCream_1oz_website.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "lip-balm-with-spf-15",
+        "name":  "Lip Balm with SPF 15",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo"
+                      ],
+        "price":  3.25,
+        "size":  "",
+        "blurb":  "Essential protection with SPF 15 to shield lips from harmful UV rays.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/LipBalm_Spf15_Website.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "peptide-eye-serum",
+        "name":  "Peptide Eye Serum",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  18,
+        "size":  "",
+        "blurb":  "Encourages healthy cellular skin functions.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/03/PeptideEyeSerum.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "tri-peptide-eye-cream",
+        "name":  "Tri-Peptide Eye Cream",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry"
+                      ],
+        "price":  18,
+        "size":  "",
+        "blurb":  "Three peptides to restore and rejuvenate.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/08/tri-peptide-eye-cream-1oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "vitamin-c-green-tea-serum",
+        "name":  "Triple C Serum",
+        "category":  "Serums \u0026 Lips",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Acne-safe"
+                      ],
+        "price":  5.75,
+        "size":  "",
+        "blurb":  "Triple C Serum is an advanced antioxidant treatment designed to visibly brighten, firm, and support skin resilience. Featuring three stabilized forms of vitamin C, peptides, green tea ext...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/TripleCSerum_1oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "sheer-protection-spf-30",
+        "name":  "Sheer Protection SPF 30",
+        "category":  "Sunscreen (SPF)",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Oily",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  2.5,
+        "size":  "",
+        "blurb":  "Sheer Protection SPF 30 is a silky, fast-absorbing mineral sunscreen formulated with 13.5% zinc oxide to provide broad-spectrum UVA/UVB protection. Ideal for daily use on all skin types,...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/SheerProtectionSPF30_2oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "cucumber-hydration-toner-2",
+        "name":  "Cucumber Hydration Toner",
+        "category":  "Toners",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Dry",
+                          "Sensitive",
+                          "Acne-safe"
+                      ],
+        "price":  1.25,
+        "size":  "",
+        "blurb":  "Award-winning Cucumber Hydration Toner is a lightweight, moisture-rich formula designed to calm and replenish the skin after cleansing or exfoliation. Powered by a blend of humectants, pl...",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/cucumber_hydration_toner_3.3oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "mint-refining-toner",
+        "name":  "Mint Refining Toner",
+        "category":  "Toners",
+        "skinTypes":  [
+                          "Normal/Combo",
+                          "Oily",
+                          "Acne-safe"
+                      ],
+        "price":  1.25,
+        "size":  "",
+        "blurb":  "Mint Refining Toner is a clarifying, astringent toner formulated to help minimize the appearance of pores, support a balanced skin microbiome, and refresh oily or congested skin. With a b...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/05/MintRefiningToner_3.3oz.webp",
+        "pro":  false,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "discovery-kit",
+        "name":  "Discovery Kit",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  65,
+        "size":  "",
+        "blurb":  "Discover the essentials of Skin Script. Our Discovery Kit features sample sizes of our classic enzymes and masks, plus our key retail products, giving you a hands-on introduction to the f...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/04/DiscoveryKit2_optimized.webp",
+        "pro":  true,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "facial-brush",
+        "name":  "Facial Brush",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  10,
+        "size":  "",
+        "blurb":  "2-in-1 facial brush for effortless application and cleansing.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/scrubbrush04.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "fan-brush",
+        "name":  "Fan Brush",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  10,
+        "size":  "",
+        "blurb":  "Treatment fan brush.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/04/taklon_treatment_fan_brush-scaled-1.webp",
+        "pro":  true,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "prescription-pad-2-part-carbonless-25-pad",
+        "name":  "Prescription Pad",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  3.5,
+        "size":  "",
+        "blurb":  "A personalized home care guide for your clients—right from the treatment room.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/prescription_pads.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "skin-script-shelf-talkers",
+        "name":  "Retail Shelf Talkers",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  5.5,
+        "size":  "",
+        "blurb":  "Branded display cards designed for retail success.",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/shelf_talkers_3_products.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "shopping-bags",
+        "name":  "Retail Shopping Bags",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  12.5,
+        "size":  "",
+        "blurb":  "Elevate the client experience with Skin Script Branded Retail Bags—perfect for packaging retail products, gift sets, and post-treatment recommendations. Made with a sturdy design and clea...",
+        "image":  "https://skinscript.com/wp-content/uploads/2026/02/srx_small_bag.webp",
+        "pro":  true,
+        "retail":  true,
+        "listed":  true,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "skin-script-headband",
+        "name":  "Skin Script Terry Headband",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  6,
+        "size":  "",
+        "blurb":  "Small/Medium fit",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/PurpleHeadband_q70.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    },
+    {
+        "id":  "skin-script-training-manual",
+        "name":  "Skin Script Training Manual",
+        "category":  "Tools",
+        "skinTypes":  [
+
+                      ],
+        "price":  11,
+        "size":  "",
+        "blurb":  "Designed to build your confidence by preparing you with the best tools, tips, and tricks.",
+        "image":  "https://skinscript.com/wp-content/uploads/2025/12/TrainingManaul_New_q80.webp",
+        "pro":  true,
+        "retail":  false,
+        "listed":  false,
+        "dropship":  false,
+        "inStock":  false
+    }
+]

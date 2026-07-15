@@ -1,5 +1,13 @@
 import { useMemo, useState } from 'react';
-import { useCatalog, updateProduct, resetOverrides, exportConfig } from '../shop/catalogStore';
+import {
+  useCatalog,
+  updateProduct,
+  resetOverrides,
+  exportConfig,
+  trashProduct,
+  restoreProduct,
+  emptyTrash,
+} from '../shop/catalogStore';
 import { useShowPrices, setShowPrices } from '../shop/settingsStore';
 import { ADMIN_PASSCODE, ADMIN_SESSION_KEY } from '../shop/adminConfig';
 import { CATEGORIES } from '../data/skinScriptProducts';
@@ -45,25 +53,28 @@ function Dashboard() {
   const showPrices = useShowPrices();
   const [savedFlash, setSavedFlash] = useState('');
 
+  const active = useMemo(() => catalog.filter((p) => !p.trashed), [catalog]);
+  const trashed = useMemo(() => catalog.filter((p) => p.trashed), [catalog]);
+
   const stats = useMemo(() => {
-    const listed = catalog.filter((p) => p.listed);
+    const listed = active.filter((p) => p.listed);
     return {
-      total: catalog.length,
+      total: active.length,
       listed: listed.length,
       dropship: listed.filter((p) => p.dropship).length,
-      inHouse: listed.filter((p) => !p.dropship).length,
+      pro: active.filter((p) => p.pro).length,
     };
-  }, [catalog]);
+  }, [active]);
 
   const byCategory = useMemo(() => {
     const groups = {};
     for (const cat of CATEGORIES) {
       if (cat === 'All') continue;
-      const rows = catalog.filter((p) => p.category === cat);
+      const rows = active.filter((p) => p.category === cat);
       if (rows.length) groups[cat] = rows;
     }
     return groups;
-  }, [catalog]);
+  }, [active]);
 
   const flash = (msg) => {
     setSavedFlash(msg);
@@ -89,6 +100,13 @@ function Dashboard() {
     }
   };
 
+  const doEmptyTrash = () => {
+    if (window.confirm(`Permanently remove ${trashed.length} item(s) from this device? This cannot be undone here.`)) {
+      emptyTrash();
+      flash('Trash emptied');
+    }
+  };
+
   return (
     <div className="admin">
       <header className="admin__bar">
@@ -105,20 +123,20 @@ function Dashboard() {
 
       <div className="admin__stats">
         <div className="admin__stat"><b>{stats.listed}</b><span>Public in shop</span></div>
-        <div className="admin__stat"><b>{stats.inHouse}</b><span>In-house / pickup</span></div>
+        <div className="admin__stat"><b>{stats.pro}</b><span>Professional / back-bar</span></div>
         <div className="admin__stat"><b>{stats.dropship}</b><span>Ships in 24 hrs</span></div>
         <div className="admin__stat"><b>{stats.total}</b><span>Total in catalog</span></div>
       </div>
 
       <div className="admin__legend">
         <p>
-          <b>Public</b> — when on, the product appears in the shop. When off, it is
-          NOT listed on the site.
-          &nbsp;<b>Ships in 24 hrs</b> — Skin Script drop-ships it to the client
-          ("Ships in 24 hrs, delivery times may vary based off location"). Off = you
+          <b>Public</b> — when on, the product appears in the shop; off = not listed.
+          &nbsp;<b>Pro</b> — marks a professional / back-bar item (shows a
+          "Professional" badge when public). New professional items start hidden.
+          &nbsp;<b>Ships 24h</b> — Skin Script drop-ships it to the client; off = you
           keep it in stock for pickup.
-          &nbsp;Prices are loaded and ready — use the switch below to reveal them
-          publicly when you're ready.
+          &nbsp;<b>Trash</b> — moves an item to the Trash bin (hidden from the shop);
+          empty the trash to remove it permanently.
         </p>
       </div>
 
@@ -149,8 +167,10 @@ function Dashboard() {
               <span>Product</span>
               <span>Price</span>
               <span>Public</span>
+              <span>Pro</span>
               <span>Ships 24h</span>
               <span>In stock</span>
+              <span>Trash</span>
             </div>
             {rows.map((p) => (
               <div className={`admin__row ${p.listed ? '' : 'admin__row--off'}`} key={p.id}>
@@ -176,6 +196,14 @@ function Dashboard() {
                 <label className="admin__toggle">
                   <input
                     type="checkbox"
+                    checked={p.pro}
+                    onChange={(e) => updateProduct(p.id, { pro: e.target.checked })}
+                  />
+                  <span />
+                </label>
+                <label className="admin__toggle">
+                  <input
+                    type="checkbox"
                     checked={p.dropship}
                     onChange={(e) => updateProduct(p.id, { dropship: e.target.checked })}
                   />
@@ -189,18 +217,53 @@ function Dashboard() {
                   />
                   <span />
                 </label>
+                <button
+                  className="admin__trash-btn"
+                  title="Move to trash"
+                  aria-label={`Move ${p.name} to trash`}
+                  onClick={() => { trashProduct(p.id); flash('Moved to trash'); }}
+                >
+                  🗑
+                </button>
               </div>
             ))}
           </div>
         </section>
       ))}
 
+      {trashed.length > 0 && (
+        <section className="admin__group admin__trash">
+          <div className="admin__trash-head">
+            <h2 className="admin__group-title">Trash bin ({trashed.length})</h2>
+            <button className="admin__reset" onClick={doEmptyTrash}>Empty trash</button>
+          </div>
+          <p className="admin__trash-note">
+            These items are hidden from the shop. Restore one to bring it back, or
+            empty the trash to remove them permanently from this device.
+          </p>
+          <div className="admin__table">
+            {trashed.map((p) => (
+              <div className="admin__trash-row" key={p.id}>
+                <span className="admin__name">{p.name}</span>
+                <span className="admin__trash-cat">{p.category}</span>
+                <button
+                  className="admin__restore-btn"
+                  onClick={() => { restoreProduct(p.id); flash('Restored'); }}
+                >
+                  Restore
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <footer className="admin__footer">
         <button className="btn btn-secondary" onClick={doExport}>Copy config (JSON)</button>
         <button
           className="admin__reset"
           onClick={() => {
-            if (window.confirm('Reset all products to their defaults? This clears your changes on this device.')) {
+            if (window.confirm('Reset all products to their defaults? This clears your changes (and restores trashed items) on this device.')) {
               resetOverrides();
               flash('Reset to defaults');
             }

@@ -92,6 +92,19 @@
   letter-spacing: 0.05em;
 }
 
+.shop__art-pro {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--slate);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
 .shop__art-size {
   position: absolute;
   bottom: 0.75rem;

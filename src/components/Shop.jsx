@@ -13,9 +13,9 @@ import {
 } from '../data/skinScriptProducts';
 import './Shop.css';
 
-// Auto-load any official product photos placed in src/assets/products/.
-// Files are named by product id (e.g. "peptide-eye-serum.webp"). Missing
-// images gracefully fall back to the branded initials placeholder.
+// Prefer any official product photo dropped into src/assets/products/ (named by
+// product id, e.g. "peptide-eye-serum.webp"); otherwise use the official image
+// URL from the Skin Script catalog; otherwise a branded initials placeholder.
 const PRODUCT_IMAGE_MODULES = import.meta.glob(
   '../assets/products/*.{webp,jpg,jpeg,png}',
   { eager: true, import: 'default' }
@@ -30,21 +30,30 @@ for (const path in PRODUCT_IMAGE_MODULES) {
 
 function ProductCard({ product, showPrices }) {
   const { addItem } = useCart();
+  const [imgOk, setImgOk] = useState(true);
   const [g1, g2] = CATEGORY_COLORS[product.category] || ['#e7dccf', '#cbb6a2'];
-  const image = IMAGE_BY_ID[product.id];
+  const image = IMAGE_BY_ID[product.id] || product.image || '';
+  const showImage = image && imgOk;
 
   return (
     <article className="shop__card">
       <div
-        className={`shop__art ${image ? 'shop__art--photo' : ''}`}
-        style={image ? undefined : { background: `linear-gradient(135deg, ${g1}, ${g2})` }}
+        className={`shop__art ${showImage ? 'shop__art--photo' : ''}`}
+        style={showImage ? undefined : { background: `linear-gradient(135deg, ${g1}, ${g2})` }}
       >
-        {image ? (
-          <img className="shop__art-img" src={image} alt={product.name} loading="lazy" />
+        {showImage ? (
+          <img
+            className="shop__art-img"
+            src={image}
+            alt={product.name}
+            loading="lazy"
+            onError={() => setImgOk(false)}
+          />
         ) : (
           <span className="shop__art-initials">{productInitials(product.name)}</span>
         )}
-        <span className="shop__art-size">{product.size}</span>
+        {product.pro && <span className="shop__art-pro">Professional</span>}
+        {product.size && <span className="shop__art-size">{product.size}</span>}
       </div>
 
       <div className="shop__body">
@@ -89,7 +98,7 @@ export default function Shop() {
   const [activeCat, setActiveCat] = useState('All');
 
   const listed = useMemo(
-    () => catalog.filter((p) => p.listed),
+    () => catalog.filter((p) => p.listed && !p.trashed),
     [catalog]
   );
 
@@ -112,9 +121,9 @@ export default function Shop() {
         <span className="section-label">Shop Skincare</span>
         <h2 className="section-title">Skin Script, curated by Kristin</h2>
         <p className="section-subtitle">
-          Professional-grade, fruit-based formulas available only through a licensed
-          esthetician. Pick up in-stock favorites at your visit, or have select items
-          shipped straight to your door.
+          Professional-grade, plant-based skincare — including fruit-based enzymes —
+          available only through a licensed esthetician. Pick up in-stock favorites at
+          your visit, or have select items shipped straight to your door.
         </p>
 
         {listed.length === 0 ? (

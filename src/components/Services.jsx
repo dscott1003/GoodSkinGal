@@ -18,7 +18,7 @@ const SERVICES = [
   },
   {
     title: 'Shop Skin Script',
-    description: 'Professional, fruit-based skincare hand-picked by Kristin — pick up in-house favorites or have them shipped to your door.',
+    description: 'Professional, plant-based skincare — including fruit-based enzymes — hand-picked by Kristin. Pick up in-house favorites or have them shipped to your door.',
     icon: '◇',
     href: '#shop',
     cta: 'Browse the shop',
